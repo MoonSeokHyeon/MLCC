@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="VASFx.UI.MLCCControls.MLCCResultOverlap"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VASFx.UI.MLCCControls"
+             mc:Ignorable="d" 
+             x:Name="MeshOverlapControl"
+             d:DataContext="{d:DesignInstance local:MLCCResultOverlap}"
+             DataContext="{Binding}"
+             d:DesignHeight="100" d:DesignWidth="250">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border CornerRadius="5" BorderThickness="2" BorderBrush="Red" Grid.Row="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Mesh" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Foreground="Black"/>
+                <Border BorderThickness="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Red" 
+                        Visibility="{Binding ElementName=MeshOverlapControl, Path=Mesh5Result}" CornerRadius="3,3,3,3"/>
+                <TextBlock Grid.Row="1" Text="5" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black"/>
+            </Grid>
+        </Border>
+
+        <Border CornerRadius="5" BorderThickness="2" BorderBrush="Red" Grid.Column="1" Grid.Row="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Mesh" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Foreground="Black"/>
+                <Border BorderThickness="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Red" 
+                        Visibility="{Binding Path=Mesh3Result, ElementName=MeshOverlapControl}" CornerRadius="3,3,3,3"/>
+                <TextBlock Grid.Row="1" Text="3" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black"/>
+            </Grid>
+        </Border>
+
+        <Border Grid.Column="2" CornerRadius="5" BorderThickness="2" BorderBrush="Red" Grid.Row="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Mesh" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Foreground="Black"/>
+                <Border BorderThickness="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Red" 
+                        Visibility="{Binding ElementName=MeshOverlapControl, Path=Mesh1Result}" CornerRadius="3,3,3,3"/>
+                <TextBlock Grid.Row="1" Text="1" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black"/>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="0" CornerRadius="5" BorderThickness="2" BorderBrush="Red">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Mesh" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Foreground="Black"/>
+                <Border BorderThickness="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Red" 
+                        Visibility="{Binding ElementName=MeshOverlapControl, Path=Mesh6Result}" CornerRadius="3,3,3,3"/>
+                <TextBlock Grid.Row="1" Text="6" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black"/>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="1" CornerRadius="5" BorderThickness="2" BorderBrush="Red">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Mesh" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Foreground="Black"/>
+                <Border BorderThickness="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Red" 
+                        Visibility="{Binding ElementName=MeshOverlapControl, Path=Mesh4Result}" CornerRadius="3,3,3,3"/>
+                <TextBlock Grid.Row="1" Text="4" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black"/>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="2" CornerRadius="5" BorderThickness="2" BorderBrush="Red" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Mesh" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Foreground="Black"/>
+                <Border BorderThickness="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="red" 
+                        Visibility="{Binding ElementName=MeshOverlapControl, Path=Mesh2Result}" CornerRadius="3,3,3,3"/>
+                <TextBlock Grid.Row="1" Text="2" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black"/>
+            </Grid>
+        </Border>
+
+    </Grid>
+
+</UserControl>

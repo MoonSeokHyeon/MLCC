@@ -1,0 +1,300 @@
+﻿<UserControl x:Class="VASFx.UI.EditControlViews.UI.ModelMeasureView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VASFx.UI.EditControlViews.UI"
+             mc:Ignorable="d" 
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:materialDesignColors="clr-namespace:MaterialDesignColors;assembly=MaterialDesignColors"
+             xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf" 
+             Width="1650" Height="800"
+             >
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.7*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Margin="5">
+            <Border VerticalAlignment="Stretch" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" BorderThickness="3" CornerRadius="5" Background="#FFF0F0F0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="18*"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" Background="{DynamicResource PrimaryHueMidBrush}" Margin="-1">
+                        <TextBlock FontFamily="Consolas" HorizontalAlignment="Center" VerticalAlignment="Center" Text="UNIT 1 PANEL" Grid.Row="1" Foreground="White"/>
+                    </Border>
+
+                    <Grid Grid.Row="1" HorizontalAlignment="Center" Margin="0 50 0 0" VerticalAlignment="Center">
+                        <Path Fill="#b9b9b9" Data="m -3.7226075,57.647241 c 0.00239,0.0075 -4.382e-4,0.02321 -0.00319,0.02897 0.00159,-0.0097 0.00239,-0.01929 0.00319,-0.02897 z M 263.78598,117.7546 c -0.0982,-6.65094 -0.16803,50.02664 -0.16803,151.81493 0,135.71771 0.12323,191.23908 0.27383,123.38022 0.1506,-67.85867 0.1506,-178.90179 0,-246.76045 -0.006,-2.58443 -0.01,-2.10291 -0.0155,-4.33178 -0.0997,-0.34035 -0.0513,-0.91738 -0.006,-1.40094 -0.0293,-11.08378 -0.0578,-20.93196 -0.084,-22.70198 z M -7.0491043,422.69412 c -7.966e-4,0.044 -0.00239,0.0879 -0.00319,0.13184 -0.00478,0.16366 -0.00558,0.32759 -0.00319,0.49113 0.00319,-0.24693 0.00717,-0.0284 0.010914,-0.56502 -0.00159,-0.0193 -0.00319,-0.0386 -0.00478,-0.0579 z" />
+                        <Path Fill="#a3a3a3" Data="m -3.7226075,57.647241 c 0.00239,0.0075 -5.816e-4,0.02321 -0.00319,0.02897 0.00159,-0.0097 0.00239,-0.01929 0.00319,-0.02897 z M 260.59952,118.14432 c -0.0982,-6.78144 -0.16803,49.92696 -0.16803,151.91923 0,135.98959 0.12323,191.76908 0.27383,123.95394 0.15061,-67.81514 0.1506,-179.07992 0,-247.25449 -0.0377,-17.04364 -0.073,-26.3582 -0.1058,-28.61868 z M 131.38764,536.74148 c -19.34778,0 -38.695574,0.0371 -53.373204,0.1101 -29.355261,0.14607 -5.337201,0.26513 53.373204,0.26513 58.71052,0 82.72847,-0.11906 53.3732,-0.26513 -14.67763,-0.073 -34.02542,-0.1101 -53.3732,-0.1101 z" />
+                        <Path Fill="#606060" Data="m 2.4962786,117.7546 c -0.098199,-6.65094 -0.168038,50.02664 -0.168038,151.81493 0,135.71771 0.1232364,191.23908 0.2738364,123.38022 0.150616,-67.85883 0.150616,-178.90164 0,-246.76045 -0.03768,-16.96472 -0.07305,-26.21772 -0.1057984,-28.4347 z" />
+                        <Path Fill="#333333" Data="m 38.818495,-10.89041 c -0.0016,0.0014 -0.0032,0.0029 -0.0048,0.0044 0.0064,-7.12e-4 0.01243,-0.0022 0.01864,-0.0029 -0.0048,-4.43e-4 -0.0093,-0.001 -0.01402,-0.0015 z M 131.38764,0.06217081 c -100.188863,0 -111.363443,0.156065 -114.788792,1.60666799 C 11.203113,3.9538828 5.2519448,9.0958238 2.5398375,13.815191 L 0.21223214,17.864458 V 269.56953 c 0,238.90286 0.095156,251.89379 1.88262416,255.4356 2.6797885,5.30993 9.2891677,11.09581 14.7140357,12.88087 4.071212,1.33951 18.200126,1.53723 114.048188,1.60087 72.34474,0.048 110.74121,-0.27384 113.35738,-0.95038 5.62276,-1.45407 12.59289,-6.72554 15.69425,-11.86964 l 2.65589,-4.40421 0.27384,-250.6837 C 263.14268,-7.0479622 263.72816,15.401726 255.95208,7.9462898 253.82833,5.9100968 249.90719,3.3026988 247.23755,2.1527228 242.39423,0.06639781 242.14054,0.06217081 131.38764,0.06217081 Z m 0.2894,2.47302299 h 110.81972 l 5.25423,2.513588 c 5.85955,2.803015 9.65575,6.7361502 11.73607,12.1593912 1.13096,2.948322 1.39534,50.063583 1.4143,252.855377 0.0233,248.77432 0.0189,249.24019 -2.14401,253.68261 -2.69564,5.53651 -5.60486,8.48821 -11.06393,11.22349 l -4.24757,2.12823 -110.46498,0.21297 C 42.547091,537.48503 21.795431,537.28273 18.532822,536.19096 12.40346,534.13982 7.5821628,530.20471 4.8347738,525.00947 L 2.3360156,520.28509 V 269.56953 18.853957 L 4.6293978,14.89741 C 5.8903118,12.721578 8.2796398,9.7407388 9.9396498,8.2737078 16.774677,2.2332568 10.387785,2.5351938 131.67704,2.5351938 Z m 131.20808,1.077873 c 0.003,0.0013 0.0309,0.0057 0.0482,0.0087 -1.5e-4,-9.65e-4 1.6e-4,-0.0019 0,-0.0029 -0.013,-0.0015 -0.0507,-0.0069 -0.0482,-0.0058 z m -131.71686,0.950382 c -3.85492,0.152207 -7.21466,2.854833 -7.21466,6.8728882 0,1.64836 0.94363,3.845688 2.1238,4.944597 2.59732,2.418475 8.13159,2.59394 10.80409,0.341906 2.86526,-2.414475 2.61903,-8.6890132 -0.41854,-10.6700712 -1.68712,-1.100334 -3.54246,-1.558505 -5.29469,-1.48932 z m 136.74238,1.823981 c -0.002,-5.9e-4 -0.002,0.0021 -0.005,0.0015 3e-5,0.03767 -3e-5,0.07534 0,0.113003 0.012,-0.01053 0.0252,-0.02006 0.0374,-0.03043 -0.009,-0.0295 -0.0235,-0.0547 -0.0327,-0.08403 z m -136.0889,0.04346 c 0.86993,0.0108 1.77235,0.24421 2.65123,0.756249 2.12792,1.239744 2.79227,5.8832462 1.1109,7.7696672 -1.94521,2.182456 -7.096,1.790872 -8.4967,-0.646144 -2.1787,-3.790635 0.96486,-7.9265552 4.73457,-7.8797722 z M 266.22562,18.866993 c -0.0318,0.03152 -0.0659,0.06645 -0.11203,0.113003 5.2e-4,0.01134 -5.6e-4,0.01617 0.002,0.02753 0.0387,-0.0447 0.0766,-0.09012 0.11514,-0.134734 -0.002,-0.0017 -0.003,-0.0041 -0.005,-0.0058 z M -3.7226075,57.647241 c 0.00239,0.0075 -1.514e-4,0.02321 -0.00319,0.02897 0.00159,-0.0097 0.00239,-0.01929 0.00319,-0.02897 z M -4.1816011,221.61432 c -0.00159,0.0111 -0.00319,0.0236 -0.00478,0.0348 7.966e-4,-0.0114 0.1242799,0.0167 0.09647,0.006 -0.029315,-0.016 -0.062295,-0.025 -0.091802,-0.0406 z M 267.2136,348.37595 c 6e-5,-6e-4 -0.0122,0.0119 -0.0124,0.0116 0,0.002 0,0.005 0,0.007 0.002,-0.004 0.0123,-0.0173 0.0124,-0.0188 z M 128.61194,589.07482 c -0.003,0.0116 -0.008,0.0231 -0.0109,0.0348 0.074,-7.4e-4 0.1585,-0.0178 0.11514,-0.0231 -0.0346,-0.004 -0.0695,-0.007 -0.10425,-0.0116 z" />
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="165*"/>
+                            <ColumnDefinition Width="260*"/>
+                            <ColumnDefinition Width="165*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="75*"/>
+                            <RowDefinition Height="540*"/>
+                            <RowDefinition Height="75*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="1" Grid.Column="0">
+                            <Border Height="50" Width="120" Margin="2" VerticalAlignment="Stretch" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" BorderThickness="1" CornerRadius="2" Background="#FFF0F0F0">
+                                <StackPanel>
+                                    <Border Grid.Row="0" Background="{DynamicResource PrimaryHueMidBrush}" Margin="-1">
+                                        <TextBlock FontFamily="Consolas" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Height Spec" Grid.Row="1" Foreground="White"/>
+                                    </Border>
+                                    <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="0.000" VerticalAlignment="Center" materialDesign:TextFieldAssist.HasClearButton="True"  materialDesign:TextFieldAssist.SuffixText="mm">
+                                        <materialDesign:HintAssist.Hint>
+                                            <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                                                <TextBlock Text="Type : Double" />
+                                            </StackPanel>
+                                        </materialDesign:HintAssist.Hint>
+                                    </TextBox>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <Border Height="50" Width="120" Margin="2" VerticalAlignment="Stretch" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" BorderThickness="1" CornerRadius="2" Background="#FFF0F0F0">
+                                <StackPanel>
+                                    <Border Grid.Row="0" Background="{DynamicResource PrimaryHueMidBrush}" Margin="-1">
+                                        <TextBlock FontFamily="Consolas" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Width Spec" Grid.Row="1" Foreground="White"/>
+                                    </Border>
+                                    <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="0.000" VerticalAlignment="Center" materialDesign:TextFieldAssist.HasClearButton="True"  materialDesign:TextFieldAssist.SuffixText="mm">
+                                        <materialDesign:HintAssist.Hint>
+                                            <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                                                <TextBlock Text="Type : Double" />
+                                            </StackPanel>
+                                        </materialDesign:HintAssist.Hint>
+                                    </TextBox>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+
+                        <Grid Grid.Row="1" Grid.Column="3">
+                            <Border Height="50" Width="120" Margin="2" VerticalAlignment="Stretch" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" BorderThickness="1" CornerRadius="2" Background="#FFF0F0F0">
+                                <StackPanel>
+                                    <Border Grid.Row="0" Background="{DynamicResource PrimaryHueMidBrush}" Margin="-1">
+                                        <TextBlock FontFamily="Consolas" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Height Spec" Grid.Row="1" Foreground="White"/>
+                                    </Border>
+                                    <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="0.000" VerticalAlignment="Center" materialDesign:TextFieldAssist.HasClearButton="True"  materialDesign:TextFieldAssist.SuffixText="mm">
+                                        <materialDesign:HintAssist.Hint>
+                                            <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                                                <TextBlock Text="Type : Double" />
+                                            </StackPanel>
+                                        </materialDesign:HintAssist.Hint>
+                                    </TextBox>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+
+                        <Grid Grid.Row="2" Grid.Column="1">
+                            <Border Height="50" Width="120" Margin="2" VerticalAlignment="Stretch" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" BorderThickness="1" CornerRadius="2" Background="#FFF0F0F0">
+                                <StackPanel>
+                                    <Border Grid.Row="0" Background="{DynamicResource PrimaryHueMidBrush}" Margin="-1">
+                                        <TextBlock FontFamily="Consolas" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Width Spec" Grid.Row="1" Foreground="White"/>
+                                    </Border>
+                                    <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="0.000" VerticalAlignment="Center" materialDesign:TextFieldAssist.HasClearButton="True"  materialDesign:TextFieldAssist.SuffixText="mm">
+                                        <materialDesign:HintAssist.Hint>
+                                            <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                                                <TextBlock Text="Type : Double" />
+                                            </StackPanel>
+                                        </materialDesign:HintAssist.Hint>
+                                    </TextBox>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Column="1" Margin="5">
+            <Border VerticalAlignment="Stretch" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" BorderThickness="3" CornerRadius="5" Background="#FFF0F0F0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="18*"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" Background="{DynamicResource PrimaryHueMidBrush}" Margin="-1">
+                        <TextBlock FontFamily="Consolas" HorizontalAlignment="Center" VerticalAlignment="Center" Text="UNIT 1 PANEL" Grid.Row="1" Foreground="White"/>
+                    </Border>
+
+                    <Grid Grid.Row="1" Margin="0 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Path Fill="#c6c6c6" Data="m 271.62151,269.92292 c 0,-135.41212 0.12076,-190.807991 0.26786,-123.10193 0.1475,67.70606 0.1475,178.4978 0,246.20387 -0.1475,67.70603 -0.26786,12.31016 -0.26786,-123.10194 z M 127.65738,17.552105 c 0,-1.304548 0.23619,-1.838227 0.52491,-1.185953 0.28871,0.652274 0.28871,1.719632 0,2.371906 -0.2887,0.652275 -0.52491,0.118596 -0.52491,-1.185953 z"/>
+                        <Path Fill="#b1b1b1" Data="m 261.74274,533.32067 c 0,-0.19686 0.81955,-0.94416 1.82125,-1.66033 1.65059,-1.18015 1.68741,-1.14658 0.39294,0.35823 -1.35951,1.5804 -2.21415,2.083 -2.21415,1.30214 z"/>
+                        <Path Fill="#8d8d8d" Data="m 134.5828,24.494091 c 0.75125,-0.274068 1.64886,-0.240361 1.99467,0.07491 0.34582,0.31527 -0.26884,0.539506 -1.36591,0.498311 -1.21236,-0.04554 -1.45895,-0.270339 -0.62876,-0.573213 z m 0,-14.231436 c 0.75125,-0.2740716 1.64886,-0.240364 1.99467,0.07491 0.34582,0.315266 -0.26884,0.539505 -1.36591,0.498309 -1.21236,-0.04552 -1.45895,-0.270343 -0.62876,-0.573211 z"/>
+                        <Path Fill="#353535" Data="m 7.6803504,532.01853 c -1.2944886,-1.50477 -1.2576805,-1.53834 0.3929403,-0.35822 1.0016714,0.71617 1.8212175,1.46332 1.8212175,1.66033 0,0.78086 -0.8546078,0.27826 -2.2141421,-1.30214 z M 7.0251618e-6,270.3973 C 1.8825172e-5,135.24609 0.12064246,80.098058 0.26802459,147.84612 0.41544605,215.59418 0.41544605,326.17244 0.26801672,393.57558 0.12059526,460.97875 -8.4151159e-7,405.54853 -8.4151159e-7,270.3973 Z M 6.7724065,8.6550335 c 0,-0.1970151 0.8195461,-0.9441667 1.8212175,-1.6603346 1.650605,-1.180138 1.687413,-1.1465803 0.3929403,0.3582109 C 7.6270301,8.9333087 6.7724222,9.4358977 6.7724222,8.6550342 Z"/>
+                        <Path Fill="#000000" Data="M 23.423531,539.4054 C 14.289131,537.596 6.8508648,532.23387 2.9768349,524.66563 L 0.54856983,519.92184 V 269.92292 19.924012 L 2.9768349,15.180199 C 5.6744942,9.910099 11.952052,4.2458562 17.936695,1.6818968 21.619612,0.10405277 28.880335,3.625424e-8 135.29828,3.625424e-8 H 248.73406 L 254.67029,2.657569 c 6.3259,2.8320171 9.93277,6.1174324 13.62657,12.412128 l 2.2918,3.905552 V 269.92292 520.87059 l -2.2918,3.90555 c -3.6938,6.29468 -7.30067,9.5801 -13.62657,12.41211 l -5.93623,2.6576 -110.83405,0.14057 C 76.941288,540.06387 25.426869,539.8021 23.423531,539.40543 Z M 141.10215,22.368898 c 1.67313,-1.525316 3.04204,-3.692874 3.04204,-4.816793 0,-2.87338 -5.47677,-7.5900994 -8.81316,-7.5900994 -3.7773,0 -7.83797,3.9322574 -7.83797,7.5900994 0,3.657842 4.06067,7.590101 7.83797,7.590101 1.62877,0 3.95559,-1.118147 5.77112,-2.773308 z"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="165*"/>
+                            <ColumnDefinition Width="260*"/>
+                            <ColumnDefinition Width="165*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="75*"/>
+                            <RowDefinition Height="540*"/>
+                            <RowDefinition Height="75*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="1" Grid.Column="0">
+                            <Border Height="50" Width="120" Margin="2" VerticalAlignment="Stretch" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" BorderThickness="1" CornerRadius="2" Background="#FFF0F0F0">
+                                <StackPanel>
+                                    <Border Grid.Row="0" Background="{DynamicResource PrimaryHueMidBrush}" Margin="-1">
+                                        <TextBlock FontFamily="Consolas" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Height Spec" Grid.Row="1" Foreground="White"/>
+                                    </Border>
+                                    <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="0.000" VerticalAlignment="Center" materialDesign:TextFieldAssist.HasClearButton="True"  materialDesign:TextFieldAssist.SuffixText="mm">
+                                        <materialDesign:HintAssist.Hint>
+                                            <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                                                <TextBlock Text="Type : Double" />
+                                            </StackPanel>
+                                        </materialDesign:HintAssist.Hint>
+                                    </TextBox>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <Border Height="50" Width="120" Margin="2" VerticalAlignment="Stretch" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" BorderThickness="1" CornerRadius="2" Background="#FFF0F0F0">
+                                <StackPanel>
+                                    <Border Grid.Row="0" Background="{DynamicResource PrimaryHueMidBrush}" Margin="-1">
+                                        <TextBlock FontFamily="Consolas" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Width Spec" Grid.Row="1" Foreground="White"/>
+                                    </Border>
+                                    <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="0.000" VerticalAlignment="Center" materialDesign:TextFieldAssist.HasClearButton="True"  materialDesign:TextFieldAssist.SuffixText="mm">
+                                        <materialDesign:HintAssist.Hint>
+                                            <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                                                <TextBlock Text="Type : Double" />
+                                            </StackPanel>
+                                        </materialDesign:HintAssist.Hint>
+                                    </TextBox>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+
+                        <Grid Grid.Row="1" Grid.Column="3">
+                            <Border Height="50" Width="120" Margin="2" VerticalAlignment="Stretch" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" BorderThickness="1" CornerRadius="2" Background="#FFF0F0F0">
+                                <StackPanel>
+                                    <Border Grid.Row="0" Background="{DynamicResource PrimaryHueMidBrush}" Margin="-1">
+                                        <TextBlock FontFamily="Consolas" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Height Spec" Grid.Row="1" Foreground="White"/>
+                                    </Border>
+                                    <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="0.000" VerticalAlignment="Center" materialDesign:TextFieldAssist.HasClearButton="True"  materialDesign:TextFieldAssist.SuffixText="mm">
+                                        <materialDesign:HintAssist.Hint>
+                                            <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                                                <TextBlock Text="Type : Double" />
+                                            </StackPanel>
+                                        </materialDesign:HintAssist.Hint>
+                                    </TextBox>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+
+                        <Grid Grid.Row="2" Grid.Column="1">
+                            <Border Height="50" Width="120" Margin="2" VerticalAlignment="Stretch" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" BorderThickness="1" CornerRadius="2" Background="#FFF0F0F0">
+                                <StackPanel>
+                                    <Border Grid.Row="0" Background="{DynamicResource PrimaryHueMidBrush}" Margin="-1">
+                                        <TextBlock FontFamily="Consolas" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Width Spec" Grid.Row="1" Foreground="White"/>
+                                    </Border>
+                                    <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="0.000" VerticalAlignment="Center" materialDesign:TextFieldAssist.HasClearButton="True"  materialDesign:TextFieldAssist.SuffixText="mm">
+                                        <materialDesign:HintAssist.Hint>
+                                            <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                                                <TextBlock Text="Type : Double" />
+                                            </StackPanel>
+                                        </materialDesign:HintAssist.Hint>
+                                    </TextBox>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Column="2" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" Margin="2" VerticalAlignment="Stretch" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" BorderThickness="1" CornerRadius="3" Background="#FFF0F0F0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition  Height="30"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" Background="{DynamicResource PrimaryHueMidBrush}" CornerRadius="3">
+                        <TextBlock Style="{StaticResource MaterialDesignSubtitle1TextBlock}" FontFamily="Consolas" HorizontalAlignment="Center" VerticalAlignment="Center" Text="L-Check Limit" Grid.Row="1" Foreground="White"/>
+                    </Border>
+
+                    <Grid Grid.Row="1">
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="1" Margin="2" VerticalAlignment="Stretch" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" BorderThickness="1" CornerRadius="3" Background="#FFF0F0F0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition  Height="30"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" Background="{DynamicResource PrimaryHueMidBrush}" CornerRadius="3">
+                        <TextBlock Style="{StaticResource MaterialDesignSubtitle1TextBlock}" FontFamily="Consolas" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Diff Tolerance" Grid.Row="1" Foreground="White"/>
+                    </Border>
+
+                    <Grid Grid.Row="1">
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="2" Margin="2" VerticalAlignment="Stretch" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" BorderThickness="1" CornerRadius="3" Background="#FFF0F0F0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition  Height="30"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" Background="{DynamicResource PrimaryHueMidBrush}" CornerRadius="3">
+                        <TextBlock Style="{StaticResource MaterialDesignSubtitle1TextBlock}" FontFamily="Consolas" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Align Offset" Grid.Row="1" Foreground="White"/>
+                    </Border>
+
+                    <Grid Grid.Row="1">
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.ColumnSpan="3">
+            <StackPanel HorizontalAlignment="Right" Margin="0 0 10 0">
+                <Button Margin="5" HorizontalAlignment="Stretch" Height="50" Width="200" Command="{Binding CloseDialogCommand}" CommandParameter="Manual">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Close" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

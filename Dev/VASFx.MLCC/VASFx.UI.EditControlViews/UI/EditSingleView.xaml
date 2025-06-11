@@ -1,0 +1,68 @@
+﻿<Window x:Class="VASFx.UI.EditControlViews.UI.EditSingleView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VASFx.UI.EditControlViews.UI"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:prism="http://prismlibrary.com/"
+            WindowStyle="None" WindowStartupLocation="CenterOwner" ResizeMode="NoResize"
+             mc:Ignorable="d" 
+             Height="800" Width="1700" Background="#99cff0">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="500"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Background="{DynamicResource PrimaryHueMidBrus}">
+                    <materialDesign:PackIcon Kind="CameraIris" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,10,0" Height="30" Width="30"/>
+                    <TextBlock Style="{DynamicResource MaterialDesignHeadline5TextBlock}" Text="{Binding CamNum, FallbackValue=CamId}" VerticalAlignment="Center"/>
+                    <TextBlock Style="{DynamicResource MaterialDesignHeadline6TextBlock}" Margin="10 0 0 0" Text="Edit View" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1" Background="#FFF0F0F0">
+                <ContentControl Grid.Column="0" Content="{Binding CamViewHost}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.8*"/>
+                <RowDefinition Height="1.8*"/>
+                <RowDefinition Height="0.2*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <ContentControl Grid.Column="0" Content="{Binding TrayInspection}"/>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <ContentControl Grid.Column="0" Content="{Binding PanelInspection}"/>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <Grid Grid.Column="0">
+                    <Button Content="Save" Command="{Binding Save}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Height="40" FontSize="20"/>
+                </Grid>
+                
+                <Grid Grid.Column="1">
+                    <Button IsCancel="True" Content="Close" Command="{Binding Close}" CommandParameter="true" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Height="40" FontSize="20"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

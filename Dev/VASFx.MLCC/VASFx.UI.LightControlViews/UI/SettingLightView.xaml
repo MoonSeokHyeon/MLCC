@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="VASFx.UI.LightControlViews.UI.SettingLightView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VASFx.UI.LightControlViews.UI"
+             mc:Ignorable="d" 
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:materialDesignColors="clr-namespace:MaterialDesignColors;assembly=MaterialDesignColors"
+             xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf" 
+             Background="Transparent"
+             d:DesignHeight="200" d:DesignWidth="400">
+
+    <Border Margin="5" VerticalAlignment="Stretch" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" BorderThickness="2" CornerRadius="5" Background="#FFF0F0F0">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+
+            <!--Border Grid.Row="0" Background="{DynamicResource PrimaryHueMidBrush}" Margin="-1">
+                <TextBlock FontFamily="Consolas" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding LightName, FallbackValue=Light Setting }" Grid.Row="1" Foreground="White"/>
+            </Border-->
+
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2.5*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="5,0,0,0">
+                        <TextBox Text="Channel" HorizontalAlignment="Stretch" FontSize="16" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Consolas" IsReadOnly="True" VerticalAlignment="Center" Cursor="IBeam" />
+                        <ComboBox Margin="4,4,0,0" ItemsSource="{Binding LigthValueList}" SelectedItem="{Binding SelectedLigthValue}" DisplayMemberPath="Channel" HorizontalAlignment="Left" FontSize="14" Width="auto"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Row="1"  Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center">
+                        <TextBox materialDesign:HintAssist.Hint="Light Value" Margin="4,0,0,0" FontSize="16" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Consolas" Text="{Binding ElementName=mySlider,Path=Value}" IsReadOnly="True" VerticalAlignment="Center" Foreground="Black" Cursor="IBeam" />
+                        <Slider x:Name="mySlider" Value="{Binding TargetValue}" Thumb.DragCompleted="Slider_DragCompleted" Minimum="1" Maximum="255" TickFrequency="1" Style="{StaticResource MaterialDesignDiscreteSlider}" Margin="4,0,0,0" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Orientation="Vertical">
+                        <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0 0 0 5" Height="30" Width="60" Command="{Binding PlusLightValueCommand}" CommandParameter="Auto" Cursor="Hand">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <materialDesign:PackIcon Kind="ArrowUpBold" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="20" Width="auto"/>
+                            </StackPanel>
+                        </Button>
+                        <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="30" Width="60" Command="{Binding MinusLightValueCommand}" CommandParameter="Auto">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <materialDesign:PackIcon Kind="ArrowDownBold" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="20" Width="auto"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0">
+                    <Button Margin="1,1,5,1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="30" Width="90" Command="{Binding SetLightValueCommand}" CommandParameter="Auto">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <materialDesign:PackIcon Kind="LightbulbOn" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="20" Margin="0 0 2 0" Width="auto"/>
+                            <TextBlock Text="Set" FontFamily="Consolas" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Margin="1,1,5,1" HorizontalAlignment="Stretch" Height="30" Width="90" Command="{Binding OffLightValueCommand}" CommandParameter="Manual">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <materialDesign:PackIcon Kind="LightbulbOutline" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0 0 2 0" Height="20" Width="auto"/>
+                            <TextBlock Text="Off" FontFamily="Consolas" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
+                        </StackPanel>
+                    </Button>
+                    
+                    <Button Margin="1" HorizontalAlignment="Stretch" Height="30" Width="90" Command="{Binding SaveLightValueCommand}" CommandParameter="Manual">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <materialDesign:PackIcon Kind="ContentSave" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0 0 2 0" Height="20" Width="auto"/>
+                            <TextBlock Text="Save" FontFamily="Consolas" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

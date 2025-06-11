@@ -1,0 +1,150 @@
+﻿<UserControl x:Class="VASFx.UI.CalibrationControlViews.UI.LoaderCalibrationViewResult"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VASFx.UI.CalibrationControlViews.UI"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:prism="http://prismlibrary.com/"
+             mc:Ignorable="d" 
+             Height="450" Width="400">
+    <Grid>
+        <GroupBox Background="White" Header="Calibration Result" BorderBrush="White" FontWeight="Bold">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="0.2*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="0.2*"/>
+                        <ColumnDefinition Width="0.2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Label Content="FOV X[mm]"/>
+                            </Grid>
+
+                            <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Label Content="{Binding FovX}"/>
+                            </Grid>
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Label Content="FOV Y[mm]"/>
+                            </Grid>
+
+                            <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Label Content="{Binding FovY}"/>
+                            </Grid>
+                        </Grid>
+
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Label Content="Pixel Size X[mm]"/>
+                            </Grid>
+
+                            <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Label Content="{Binding PixelX}"/>
+                            </Grid>
+                        </Grid>
+
+                        <Grid Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Label Content="Pixel Size Y[mm]"/>
+                            </Grid>
+
+                            <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Label Content="{Binding PixelY}"/>
+                            </Grid>
+                        </Grid>
+
+                        <Grid Grid.Row="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Label Content="RMS Image 2D[px]"/>
+                            </Grid>
+
+                            <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Label Content="{Binding RmsImage}"/>
+                            </Grid>
+                        </Grid>
+
+                        <Grid Grid.Row="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Label Content="RMS Home 2D[mm]"/>
+                            </Grid>
+
+                            <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Label Content="{Binding RmsHome}"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+
+                    <Grid Grid.Column="1" HorizontalAlignment="Center">
+                        <Slider Value="{Binding ResultValue}" TickFrequency="25" TickPlacement="TopLeft" Orientation="Vertical" Minimum="1" Maximum="100" IsEnabled="False" />
+                    </Grid>
+
+                    <Grid Grid.Column="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0" Background="Green"/>
+                        <Grid Grid.Row="1" Background="Yellow"/>
+                        <Grid Grid.Row="2" Background="Red"/>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Button IsCancel="True" Content="Close" Command="{Binding Close}" CommandParameter="true" HorizontalAlignment="Right" VerticalAlignment="Center" Width="80" Height="40" FontSize="15"/>
+                </Grid>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>

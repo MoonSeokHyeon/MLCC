@@ -1,0 +1,881 @@
+﻿<UserControl x:Class="VASFx.UI.EditControlViews.UI.LoaderEditViewTrayInspection"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VASFx.UI.EditControlViews.UI"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:prism="http://prismlibrary.com/"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="500">
+    <Grid>
+        <GroupBox Background="White" Header="Tray Inspection" BorderBrush="White" FontWeight="Bold" Margin="10">
+            <Grid>
+                <TabControl Grid.Row="1" SelectedIndex="{Binding TabChange}"  TabStripPlacement="Top">
+                    <TabItem Header="Tray Pattern">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+                                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Label Content="Search" FontSize="13"/>
+                                            <Label Content="Region" FontSize="13"/>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Grid Grid.Column="1">
+                                        <Button VerticalAlignment="Center" HorizontalAlignment="Center" Width="60" Height="50" Command="{Binding PatternSearchRegion}">
+                                            <materialDesign:PackIcon Kind="VectorSquare" VerticalAlignment="Center" HorizontalAlignment="Center" Width="30" Height="30"/>
+                                        </Button>
+                                    </Grid>
+
+                                    <Grid Grid.Column="2">
+                                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Label Content="Move" FontSize="13"/>
+                                            <Label Content="Origin" FontSize="13"/>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Grid Grid.Column="3">
+                                        <Button VerticalAlignment="Center" HorizontalAlignment="Center" Width="60" Height="50" Command="{Binding PatternOrigin}">
+                                            <materialDesign:PackIcon Kind="Target" VerticalAlignment="Center" HorizontalAlignment="Center" Width="30" Height="30"/>
+                                        </Button>
+                                    </Grid>
+                                </Grid>
+
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+                                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Label Content="Train" FontSize="13"/>
+                                            <Label Content="Region" FontSize="13"/>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Grid Grid.Column="1">
+                                        <Button VerticalAlignment="Center" HorizontalAlignment="Center" Width="60" Height="50" Command="{Binding PatternTrainRegion}">
+                                            <materialDesign:PackIcon Kind="BorderOutside" VerticalAlignment="Center" HorizontalAlignment="Center" Width="30" Height="30"/>
+                                        </Button>
+                                    </Grid>
+
+                                    <Grid Grid.Column="3">
+                                        <Button Content="Reset" Command="{Binding PatternReset}" HorizontalAlignment="Center" VerticalAlignment="Top" Width="80" Height="20" FontSize="10"/>
+                                    </Grid>
+                                </Grid>
+
+                                <Grid Grid.Row="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+                                        <Label Content="Train" FontSize="13" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+
+                                    <Grid Grid.Column="1">
+                                        <Button VerticalAlignment="Center" HorizontalAlignment="Center" Width="60" Height="50" Command="{Binding PatternTrain}">
+                                            <materialDesign:PackIcon Kind="TargetVariant" VerticalAlignment="Center" HorizontalAlignment="Center" Width="30" Height="30"/>
+                                        </Button>
+                                    </Grid>
+
+                                    <Grid Grid.Column="2">
+
+                                    </Grid>
+
+                                    <Grid Grid.Column="3">
+
+                                    </Grid>
+
+                                </Grid>
+
+                                <Grid Grid.Row="3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+                                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                                            <Label Content="Train Current" FontSize="13"/>
+                                            <Label Content="Golden Pose" FontSize="13"/>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Grid Grid.Column="1">
+                                        <Button VerticalAlignment="Center" HorizontalAlignment="Center" Width="60" Height="50" Command="{Binding PatternTrainCurrent}">
+                                            <materialDesign:PackIcon Kind="CrosshairsGps" VerticalAlignment="Center" HorizontalAlignment="Center" Width="30" Height="30"/>
+                                        </Button>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1.5*"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="0.5*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+                                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                                            <Label Content="Contrast" FontSize="13"/>
+                                            <Label Content="Threshold" FontSize="13"/>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Grid Grid.Column="1">
+                                        <TextBox Width="50" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding PatternContrastValue}" TextAlignment="Center" FontSize="13"/>
+                                    </Grid>
+
+                                    <Grid Grid.Column="2">
+                                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                            <Button Height="10" Width="25" Command="{Binding PatternContrast}" CommandParameter="Up">
+                                                <materialDesign:PackIcon Kind="MenuUp" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                            </Button>
+                                            <Button Height="10" Width="25" Command="{Binding PatternContrast}" CommandParameter="Down">
+                                                <materialDesign:PackIcon Kind="MenuDown" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+
+                                </Grid>
+
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1.5*"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="0.5*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+                                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                                            <Label Content="Angle" FontSize="13"/>
+                                            <Label Content="Range" FontSize="13"/>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Grid Grid.Column="1">
+                                        <TextBox Width="50" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding PatternAngleValue}" TextAlignment="Center" FontSize="13"/>
+                                    </Grid>
+
+                                    <Grid Grid.Column="2">
+                                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                            <Button Height="10" Width="25" Command="{Binding PatternAngle}" CommandParameter="Up">
+                                                <materialDesign:PackIcon Kind="MenuUp" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                            </Button>
+                                            <Button Height="10" Width="25" Command="{Binding PatternAngle}" CommandParameter="Down">
+                                                <materialDesign:PackIcon Kind="MenuDown" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+
+                                </Grid>
+
+                                <Grid Grid.Row="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1.5*"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="0.5*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+                                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                                            <Label Content="Score" FontSize="13"/>
+                                            <Label Content="Threshold" FontSize="13"/>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Grid Grid.Column="1">
+                                        <TextBox Width="50" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding PatternScoreValue}" TextAlignment="Center" FontSize="13"/>
+                                    </Grid>
+
+                                    <Grid Grid.Column="2">
+                                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                            <Button Height="10" Width="25" Command="{Binding PatternScore}" CommandParameter="Up">
+                                                <materialDesign:PackIcon Kind="MenuUp" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                            </Button>
+                                            <Button Height="10" Width="25" Command="{Binding PatternScore}" CommandParameter="Down">
+                                                <materialDesign:PackIcon Kind="MenuDown" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+
+                                </Grid>
+
+                                <Grid Grid.Row="3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1.5*"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="0.5*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+                                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                                            <Label Content="Show" FontSize="13"/>
+                                            <Label Content="Graphic" FontSize="13"/>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Grid Grid.Column="1">
+                                        <TextBox Width="50" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding PatternGraphicValue}" TextAlignment="Center" FontSize="13"/>
+                                    </Grid>
+
+                                    <Grid Grid.Column="2">
+                                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                            <Button Height="10" Width="25" Command="{Binding PatternGraphic}" CommandParameter="Up">
+                                                <materialDesign:PackIcon Kind="MenuUp" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                            </Button>
+                                            <Button Height="10" Width="25" Command="{Binding PatternGraphic}" CommandParameter="Down">
+                                                <materialDesign:PackIcon Kind="MenuDown" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+
+                                </Grid>
+
+
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Tray Align">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+                                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Label Content="Search" FontSize="13"/>
+                                            <Label Content="Region" FontSize="13"/>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Grid Grid.Column="1">
+                                        <Button VerticalAlignment="Center" HorizontalAlignment="Center" Width="60" Height="50" Command="{Binding AlignSearchRegion}">
+                                            <materialDesign:PackIcon Kind="VectorSquare" VerticalAlignment="Center" HorizontalAlignment="Center" Width="30" Height="30"/>
+                                        </Button>
+                                    </Grid>
+
+                                    <Grid Grid.Column="2">
+                                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Label Content="Move" FontSize="13"/>
+                                            <Label Content="Origin" FontSize="13"/>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Grid Grid.Column="3">
+                                        <Button VerticalAlignment="Center" HorizontalAlignment="Center" Width="60" Height="50" Command="{Binding AlignOrigin}">
+                                            <materialDesign:PackIcon Kind="Target" VerticalAlignment="Center" HorizontalAlignment="Center" Width="30" Height="30"/>
+                                        </Button>
+                                    </Grid>
+                                </Grid>
+
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+                                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Label Content="Train" FontSize="13"/>
+                                            <Label Content="Region" FontSize="13"/>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Grid Grid.Column="1">
+                                        <Button VerticalAlignment="Center" HorizontalAlignment="Center" Width="60" Height="50" Command="{Binding AlignTrainRegion}">
+                                            <materialDesign:PackIcon Kind="BorderOutside" VerticalAlignment="Center" HorizontalAlignment="Center" Width="30" Height="30"/>
+                                        </Button>
+                                    </Grid>
+
+                                    <Grid Grid.Column="3">
+                                        <Button Content="Reset" Command="{Binding AlignReset}" HorizontalAlignment="Center" VerticalAlignment="Top" Width="80" Height="20" FontSize="10"/>
+                                    </Grid>
+                                </Grid>
+
+                                <Grid Grid.Row="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+                                        <Label Content="Train" FontSize="13" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+
+                                    <Grid Grid.Column="1">
+                                        <Button VerticalAlignment="Center" HorizontalAlignment="Center" Width="60" Height="50" Command="{Binding AlignTrain}">
+                                            <materialDesign:PackIcon Kind="TargetVariant" VerticalAlignment="Center" HorizontalAlignment="Center" Width="30" Height="30"/>
+                                        </Button>
+                                    </Grid>
+
+                                    <Grid Grid.Column="2">
+
+                                    </Grid>
+
+                                    <Grid Grid.Column="3">
+
+                                    </Grid>
+
+                                </Grid>
+
+                                <Grid Grid.Row="3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.7*"/>
+                                        <ColumnDefinition Width="0.5*"/>
+                                        <ColumnDefinition Width="0.6*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+                                        <StackPanel Orientation="Vertical">
+                                            <Label Content="Region" FontSize="13" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            <ComboBox  FontSize="13" SelectedItem="{Binding RegionSelected}" materialDesign:ComboBoxAssist.ClassicMode="{Binding ElementName=ClassicModeCheckBox, Path=IsChecked}" VerticalAlignment="Center" Foreground="Black" Background="WhiteSmoke">
+                                                <ComboBoxItem IsSelected="True" Content="Region1"/>
+                                                <ComboBoxItem IsSelected="false" Content="Region2"/>
+                                                <ComboBoxItem IsSelected="false" Content="Region3"/>
+                                                <ComboBoxItem IsSelected="false" Content="Region4"/>
+                                            </ComboBox>
+                                        </StackPanel>
+                                        
+                                    </Grid>
+
+                                    <Grid Grid.Column="1">
+                                        <CheckBox VerticalAlignment="Center" HorizontalAlignment="Right" IsChecked="{Binding IsOneRegion}"/>
+                                    </Grid>
+                                    <Grid Grid.Column="2">
+                                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Label Content="One Region" FontSize="13"/>
+                                            <Label Content="ONLY" FontSize="13"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1.5*"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="0.5*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+                                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                                            <Label Content="Number" FontSize="13"/>
+                                            <Label Content="Pocket" FontSize="13"/>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Grid Grid.Column="1">
+                                        <TextBox Width="50" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding AlignPocketValue}" TextAlignment="Center" FontSize="13"/>
+                                    </Grid>
+
+                                    <Grid Grid.Column="2">
+                                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                            <Button Height="10" Width="25" Command="{Binding AlignPocket}" CommandParameter="Up">
+                                                <materialDesign:PackIcon Kind="MenuUp" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                            </Button>
+                                            <Button Height="10" Width="25" Command="{Binding AlignPocket}" CommandParameter="Down">
+                                                <materialDesign:PackIcon Kind="MenuDown" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+                                </Grid>
+
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1.5*"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="0.5*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+                                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                                            <Label Content="Contrast" FontSize="13"/>
+                                            <Label Content="Threshold" FontSize="13"/>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Grid Grid.Column="1">
+                                        <TextBox Width="50" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding AlignContrastValue}" TextAlignment="Center" FontSize="13"/>
+                                    </Grid>
+
+                                    <Grid Grid.Column="2">
+                                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                            <Button Height="10" Width="25" Command="{Binding AlignContrast}" CommandParameter="Up">
+                                                <materialDesign:PackIcon Kind="MenuUp" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                            </Button>
+                                            <Button Height="10" Width="25" Command="{Binding AlignContrast}" CommandParameter="Down">
+                                                <materialDesign:PackIcon Kind="MenuDown" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+
+                                </Grid>
+
+                                <Grid Grid.Row="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1.5*"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="0.5*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+                                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                                            <Label Content="Angle" FontSize="13"/>
+                                            <Label Content="Range" FontSize="13"/>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Grid Grid.Column="1">
+                                        <TextBox Width="50" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding AlignAngleValue}" TextAlignment="Center" FontSize="13"/>
+                                    </Grid>
+
+                                    <Grid Grid.Column="2">
+                                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                            <Button Height="10" Width="25" Command="{Binding AlignAngle}" CommandParameter="Up">
+                                                <materialDesign:PackIcon Kind="MenuUp" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                            </Button>
+                                            <Button Height="10" Width="25" Command="{Binding AlignAngle}" CommandParameter="Down">
+                                                <materialDesign:PackIcon Kind="MenuDown" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+
+                                </Grid>
+
+                                <Grid Grid.Row="3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1.5*"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="0.5*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+                                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                                            <Label Content="Score" FontSize="13"/>
+                                            <Label Content="Threshold" FontSize="13"/>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Grid Grid.Column="1">
+                                        <TextBox Width="50" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding AlignScoreValue}" TextAlignment="Center" FontSize="13"/>
+                                    </Grid>
+
+                                    <Grid Grid.Column="2">
+                                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                            <Button Height="10" Width="25" Command="{Binding AlignScore}" CommandParameter="Up">
+                                                <materialDesign:PackIcon Kind="MenuUp" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                            </Button>
+                                            <Button Height="10" Width="25" Command="{Binding AlignScore}" CommandParameter="Down">
+                                                <materialDesign:PackIcon Kind="MenuDown" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+
+                                </Grid>
+
+                                <Grid Grid.Row="4">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1.5*"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="0.5*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+                                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                                            <Label Content="Show" FontSize="13"/>
+                                            <Label Content="Graphic" FontSize="13"/>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Grid Grid.Column="1">
+                                        <TextBox Width="50" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding AlignGraphicValue}" TextAlignment="Center" FontSize="13"/>
+                                    </Grid>
+
+                                    <Grid Grid.Column="2">
+                                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                            <Button Height="10" Width="25" Command="{Binding AlignGraphic}" CommandParameter="Up">
+                                                <materialDesign:PackIcon Kind="MenuUp" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                            </Button>
+                                            <Button Height="10" Width="25" Command="{Binding AlignGraphic}" CommandParameter="Down">
+                                                <materialDesign:PackIcon Kind="MenuDown" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+
+                                </Grid>
+
+
+                            </Grid>
+
+                        </Grid>
+
+                    </TabItem>
+                    <TabItem Header="Pocket Params">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.3*"/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Pocket Number" FontSize="13" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,30,0"/>
+                                    <ComboBox  FontSize="13" SelectedItem="{Binding PocketNumSelected}" materialDesign:ComboBoxAssist.ClassicMode="{Binding ElementName=ClassicModeCheckBox, Path=IsChecked}" VerticalAlignment="Center" Foreground="Black" Background="WhiteSmoke">
+                                        <ComboBoxItem IsSelected="True" Content="Pocket 1"/>
+                                        <ComboBoxItem IsSelected="False" Content="Pocket 2"/>
+                                        <ComboBoxItem IsSelected="False" Content="Pocket 3"/>
+                                        <ComboBoxItem IsSelected="False" Content="Pocket 4"/>
+                                    </ComboBox>
+                                </StackPanel>
+                            </Grid>
+                            <Border Grid.Row="1" BorderThickness="3" BorderBrush="{DynamicResource PrimaryHueMidBrush}">
+                                <Grid Grid.Row="1">
+                                    <GroupBox Background="White" Header="Limitation" BorderBrush="White" FontWeight="Bold" >
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+
+                                            <Grid Grid.Row="0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="0.2*"/>
+                                                    <ColumnDefinition Width="0.4*"/>
+                                                    <ColumnDefinition Width="0.7*"/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Grid Grid.Column="0">
+                                                    <CheckBox VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding IsLimitation}"/>
+                                                </Grid>
+
+                                                <Grid Grid.Column="1">
+                                                    <Label Content="Enable" FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                                </Grid>
+
+                                                <Grid Grid.Column="2">
+                                                    <Label Content="X" FontSize="13" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Grid>
+
+                                                <Grid Grid.Column="3">
+                                                    <Label Content="Y" FontSize="13" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Grid>
+
+                                                <Grid Grid.Column="4">
+                                                    <Label Content="T" FontSize="13" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Grid>
+
+                                            </Grid>
+
+                                            <Grid Grid.Row="1">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition Width="0.4*"/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition Width="0.4*"/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition Width="0.4*"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Grid Grid.Column="0">
+                                                    <Label Content="Max" FontSize="13" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Grid>
+
+                                                <Grid Grid.Column="1">
+                                                    <TextBox Width="50" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding LimitMaxXValue}" TextAlignment="Center" FontSize="13"/>
+                                                </Grid>
+
+                                                <Grid Grid.Column="2">
+                                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                                        <Button Height="10" Width="25" Command="{Binding LimitMaxX}" CommandParameter="Up">
+                                                            <materialDesign:PackIcon Kind="MenuUp" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                                        </Button>
+                                                        <Button Height="10" Width="25" Command="{Binding LimitMaxX}" CommandParameter="Down">
+                                                            <materialDesign:PackIcon Kind="MenuDown" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                                        </Button>
+                                                    </StackPanel>
+                                                </Grid>
+
+                                                <Grid Grid.Column="3">
+                                                    <TextBox Width="50" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding LimitMaxYValue}" TextAlignment="Center" FontSize="13"/>
+                                                </Grid>
+
+                                                <Grid Grid.Column="4">
+                                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                                        <Button Height="10" Width="25" Command="{Binding LimitMaxY}" CommandParameter="Up">
+                                                            <materialDesign:PackIcon Kind="MenuUp" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                                        </Button>
+                                                        <Button Height="10" Width="25" Command="{Binding LimitMaxY}" CommandParameter="Down">
+                                                            <materialDesign:PackIcon Kind="MenuDown" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                                        </Button>
+                                                    </StackPanel>
+                                                </Grid>
+
+                                                <Grid Grid.Column="5">
+                                                    <TextBox Width="50" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding LimitMaxTValue}" TextAlignment="Center" FontSize="13"/>
+                                                </Grid>
+
+                                                <Grid Grid.Column="6">
+                                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                                        <Button Height="10" Width="25" Command="{Binding LimitMaxT}" CommandParameter="Up">
+                                                            <materialDesign:PackIcon Kind="MenuUp" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                                        </Button>
+                                                        <Button Height="10" Width="25" Command="{Binding LimitMaxT}" CommandParameter="Down">
+                                                            <materialDesign:PackIcon Kind="MenuDown" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                                        </Button>
+                                                    </StackPanel>
+                                                </Grid>
+                                            </Grid>
+
+                                            <Grid Grid.Row="2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition Width="0.4*"/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition Width="0.4*"/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition Width="0.4*"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Grid Grid.Column="0">
+                                                    <Label Content="Min" FontSize="13" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Grid>
+
+                                                <Grid Grid.Column="1">
+                                                    <TextBox Width="50" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding LimitMinXValue}" TextAlignment="Center" FontSize="13"/>
+                                                </Grid>
+
+                                                <Grid Grid.Column="2">
+                                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                                        <Button Height="10" Width="25" Command="{Binding LimitMinX}" CommandParameter="Up">
+                                                            <materialDesign:PackIcon Kind="MenuUp" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                                        </Button>
+                                                        <Button Height="10" Width="25" Command="{Binding LimitMinX}" CommandParameter="Down">
+                                                            <materialDesign:PackIcon Kind="MenuDown" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                                        </Button>
+                                                    </StackPanel>
+                                                </Grid>
+
+                                                <Grid Grid.Column="3">
+                                                    <TextBox Width="50" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding LimitMinYValue}" TextAlignment="Center" FontSize="13"/>
+                                                </Grid>
+
+                                                <Grid Grid.Column="4">
+                                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                                        <Button Height="10" Width="25" Command="{Binding LimitMinY}" CommandParameter="Up">
+                                                            <materialDesign:PackIcon Kind="MenuUp" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                                        </Button>
+                                                        <Button Height="10" Width="25" Command="{Binding LimitMinY}" CommandParameter="Down">
+                                                            <materialDesign:PackIcon Kind="MenuDown" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                                        </Button>
+                                                    </StackPanel>
+                                                </Grid>
+
+                                                <Grid Grid.Column="5">
+                                                    <TextBox Width="50" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding LimitMinTValue}" TextAlignment="Center" FontSize="13"/>
+                                                </Grid>
+
+                                                <Grid Grid.Column="6">
+                                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                                        <Button Height="10" Width="25" Command="{Binding LimitMinT}" CommandParameter="Up">
+                                                            <materialDesign:PackIcon Kind="MenuUp" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                                        </Button>
+                                                        <Button Height="10" Width="25" Command="{Binding LimitMinT}" CommandParameter="Down">
+                                                            <materialDesign:PackIcon Kind="MenuDown" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                                        </Button>
+                                                    </StackPanel>
+                                                </Grid>
+                                            </Grid>
+
+                                        </Grid>
+                                    </GroupBox>
+                                </Grid>
+                            </Border>
+
+                            <Border Grid.Row="2" BorderThickness="3" BorderBrush="{DynamicResource PrimaryHueMidBrush}">
+                                <Grid Grid.Row="2">
+                                    <GroupBox Background="White" Header="Offset" BorderBrush="White" FontWeight="Bold">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+
+                                            <Grid Grid.Row="0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="0.2*"/>
+                                                    <ColumnDefinition Width="0.4*"/>
+                                                    <ColumnDefinition Width="0.7*"/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Grid Grid.Column="0">
+                                                    <CheckBox VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding IsOffset}"/>
+                                                </Grid>
+
+                                                <Grid Grid.Column="1">
+                                                    <Label Content="Enable" FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                                </Grid>
+
+                                                <Grid Grid.Column="2">
+                                                    <Label Content="X" FontSize="13" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Grid>
+
+                                                <Grid Grid.Column="3">
+                                                    <Label Content="Y" FontSize="13" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Grid>
+
+                                                <Grid Grid.Column="4">
+                                                    <Label Content="T" FontSize="13" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Grid>
+
+                                            </Grid>
+
+                                            <Grid Grid.Row="1">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition Width="0.4*"/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition Width="0.4*"/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition Width="0.4*"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Grid Grid.Column="0">
+
+                                                </Grid>
+
+                                                <Grid Grid.Column="1">
+                                                    <TextBox Width="50" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding OffsetXValue}" TextAlignment="Center" FontSize="13"/>
+                                                </Grid>
+
+                                                <Grid Grid.Column="2">
+                                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                                        <Button Height="10" Width="25" Command="{Binding OffsetX}" CommandParameter="Up">
+                                                            <materialDesign:PackIcon Kind="MenuUp" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                                        </Button>
+                                                        <Button Height="10" Width="25" Command="{Binding OffsetX}" CommandParameter="Down">
+                                                            <materialDesign:PackIcon Kind="MenuDown" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                                        </Button>
+                                                    </StackPanel>
+                                                </Grid>
+
+                                                <Grid Grid.Column="3">
+                                                    <TextBox Width="50" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding OffsetYValue}" TextAlignment="Center" FontSize="13"/>
+                                                </Grid>
+
+                                                <Grid Grid.Column="4">
+                                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                                        <Button Height="10" Width="25" Command="{Binding OffsetY}" CommandParameter="Up">
+                                                            <materialDesign:PackIcon Kind="MenuUp" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                                        </Button>
+                                                        <Button Height="10" Width="25" Command="{Binding OffsetY}" CommandParameter="Down">
+                                                            <materialDesign:PackIcon Kind="MenuDown" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                                        </Button>
+                                                    </StackPanel>
+                                                </Grid>
+
+                                                <Grid Grid.Column="5">
+                                                    <TextBox Width="50" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding OffsetTValue}" TextAlignment="Center" FontSize="13"/>
+                                                </Grid>
+
+                                                <Grid Grid.Column="6">
+                                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                                        <Button Height="10" Width="25" Command="{Binding OffsetT}" CommandParameter="Up">
+                                                            <materialDesign:PackIcon Kind="MenuUp" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                                        </Button>
+                                                        <Button Height="10" Width="25" Command="{Binding OffsetT}" CommandParameter="Down">
+                                                            <materialDesign:PackIcon Kind="MenuDown" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                                        </Button>
+                                                    </StackPanel>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+                                    </GroupBox>
+                                </Grid>
+                            </Border>
+                        </Grid>
+
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>

@@ -1,0 +1,194 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using VASFx.Common.Interface;
+
+namespace SplashScreenWindows.UI
+{
+    /// <summary>
+    /// VisionSplashWindow.xaml에 대한 상호 작용 논리
+    /// </summary>
+    public partial class VisionSplashWindow : Window, ISplashScreen, INotifyPropertyChanged
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
+<<<<<<< HEAD
+=======
+        protected void OnPropertyChanged( string name )
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if ( handler != null )
+            {
+                handler( this, new PropertyChangedEventArgs( name ) );
+            }
+        }
+>>>>>>> TapeFeeder_UI
+
+        #region Properties
+        string totalProgressText;
+        private int _progressValue;
+
+        public int ProgressValue
+        {
+            get { return _progressValue; }
+            set
+            {
+                _progressValue = value;
+<<<<<<< HEAD
+                OnPropertyChanged(nameof(ProgressValue));
+=======
+                OnPropertyChanged( nameof( ProgressValue ) );
+>>>>>>> TapeFeeder_UI
+            }
+        }
+        public string TotalProgressText
+        {
+            get { return totalProgressText; }
+            set
+            {
+<<<<<<< HEAD
+                if (totalProgressText == value)
+                    return;
+                totalProgressText = value;
+                OnPropertyChanged(nameof(TotalProgressText));
+            }
+        }
+        #endregion
+
+        public void SetRange(int count)
+        {
+            Dispatcher.Invoke(new Action(() =>
+            {
+                ProgressValue = 0;
+                ProgressBar.Maximum = count;
+            }));
+        }
+
+        public void StepIt()
+        {
+            Dispatcher.Invoke(new Action(() =>
+            {
+                if (this.ProgressBar.Maximum <= ProgressValue)
+                    return;
+
+                this.ProgressValue += 1;
+            }));
+        }
+
+=======
+                if ( totalProgressText == value )
+                    return;
+                totalProgressText = value;
+                OnPropertyChanged( nameof( TotalProgressText ) );
+            }
+        }
+        #endregion
+>>>>>>> TapeFeeder_UI
+        public VisionSplashWindow()
+        {
+            InitializeComponent();
+        }
+
+<<<<<<< HEAD
+        public void AddMessage(string message)
+        {
+            Dispatcher.Invoke((Action)delegate ()
+            {
+                this.UpdateMessageLabel.Text = message;
+            });
+        }
+
+        public void ReportProgress(int persent)
+        {
+            Dispatcher.Invoke((Action)delegate ()
+            {
+                ProgressValue = persent;
+            });
+        }
+
+        public void ReportTotalProgress(int persent)
+        {
+            Dispatcher.Invoke((Action)delegate ()
+            {
+                this.TotalProgressText = $"Total {persent}%";
+            });
+=======
+        public void SetRange( int count )
+        {
+            Dispatcher.Invoke( new Action( () =>
+            {
+                ProgressValue = 0;
+                ProgressBar.Maximum = count;
+            } ) );
+        }
+
+        public void StepIt()
+        {
+            Dispatcher.Invoke( new Action( () =>
+             {
+                 if ( this.ProgressBar.Maximum <= ProgressValue )
+                     return;
+
+                 this.ProgressValue += 1;
+             } ) );
+        }
+        public void AddMessage( string message )
+        {
+            Dispatcher.Invoke( (Action)delegate ()
+            {
+                this.UpdateMessageLabel.Text = message;
+            } );
+        }
+
+        public void ReportProgress(int persent )
+        {
+            Dispatcher.Invoke( (Action)delegate ()
+            {
+                ProgressValue = persent;
+            } );
+        }
+
+        public void ReportTotalProgress( int persent )
+        {
+            Dispatcher.Invoke( (Action)delegate ()
+            {
+                this.TotalProgressText = $"Total {persent}%";
+            } );
+>>>>>>> TapeFeeder_UI
+        }
+
+        public void LoadComplete()
+        {
+<<<<<<< HEAD
+            Thread.Sleep(500);
+            Dispatcher.InvokeShutdown();
+        }
+
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
+=======
+            Thread.Sleep( 500 );
+            Dispatcher.InvokeShutdown();
+        }
+
+>>>>>>> TapeFeeder_UI
+    }
+}

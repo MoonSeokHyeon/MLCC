@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="VASFx.UI.MLCCControls.MeshResultControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VASFx.UI.MLCCControls"
+             mc:Ignorable="d"
+             d:DesignHeight="50" d:DesignWidth="100" Height="auto" Width="auto">
+
+    <Border CornerRadius="5" BorderThickness="2" BorderBrush="ForestGreen" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            
+            <TextBlock Text="Mesh" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <Border Grid.Row="1" BorderThickness="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Green" Visibility="{Binding ResultOKVisibility}" CornerRadius="3,3,3,3">
+                <TextBlock  Text="{Binding MeshID, FallbackValue=1}" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Border>
+        </Grid>
+    </Border>
+</UserControl>

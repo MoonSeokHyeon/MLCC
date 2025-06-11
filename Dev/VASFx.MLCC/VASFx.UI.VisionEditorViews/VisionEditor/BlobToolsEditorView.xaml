@@ -1,0 +1,371 @@
+﻿<UserControl x:Class="VASFx.UI.VisionEditorViews.VisionEditor.BlobToolsEditorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VASFx.UI.VisionEditorViews.VisionEditor"
+             mc:Ignorable="d" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:GSGWPF="clr-namespace:GSG.NET.WPF.Behavior;assembly=GSG.NET.WPF"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:materialDesignColors="clr-namespace:MaterialDesignColors;assembly=MaterialDesignColors"
+             xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             d:DesignHeight="800" d:DesignWidth="1400">
+
+    <UserControl.Resources>
+        <DataTemplate x:Key="listBoxTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="Name"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding Name, Mode=OneWay}" VerticalAlignment="Center" FontWeight="Normal"/>
+                <TextBox Grid.Column="1" Text="{Binding Value, StringFormat={}{0:0.###}, Mode=TwoWay}" VerticalAlignment="Center" Margin="20 0 0 0">
+                    <i:Interaction.Behaviors>
+                        <GSGWPF:TextBoxEnterKeyUpdateBehavior/>
+                    </i:Interaction.Behaviors>
+                </TextBox>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ItemlistTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="Name"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding Name, Mode=OneWay}" VerticalAlignment="Center" FontWeight="Normal"/>
+                <TextBlock Grid.Column="1" Text="{Binding Data, Mode=OneWay}" VerticalAlignment="Center" FontWeight="Normal" Margin="20 0 0 0"/>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Border BorderThickness="5" Width="auto" Height="auto" CornerRadius="5" BorderBrush="{DynamicResource PrimaryHueMidBrush}">
+        <Grid Background="{DynamicResource MaterialDesignPaper}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="gridHeader" Cursor="Hand" Height="50"/>
+            <Grid Grid.Column="0">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <materialDesign:PackIcon Kind="CameraIris" VerticalAlignment="Center" Foreground="{DynamicResource MaterialDesignBody}" HorizontalAlignment="Center" Margin="10,0,0,0" Height="30" Width="30"/>
+                    <TextBlock Style="{DynamicResource MaterialDesignHeadline6TextBlock}" Foreground="{DynamicResource MaterialDesignToolForeground}" Margin="10 0 0 0" Text=" Model Blob Editor" FontSize="24" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0">
+                    <Button Width="120" Content="Grab" Margin="0,0,15,0" Height="30" BorderThickness="0" Command="{Binding GrabCommand}" Cursor="Hand"/>
+                    <Button Width="120" Content="Train" Margin="0,0,15,0" Height="30" BorderThickness="0" Command="{Binding TrainCommand}" Cursor="Hand"/>
+                    <Button Width="120" Content="Run" Margin="0,0,15,0" Height="30" BorderThickness="0" Command="{Binding RunBlobToolCommand}" Cursor="Hand"/>
+                    <Button Width="120" Content="Tool Save" Margin="0,0,15,0" Height="30" BorderThickness="0" Command="{Binding SaveCommand}" Cursor="Hand"/>
+                    <Button Width="120" Content="Load Image" Margin="0,0,15,0" Height="30" BorderThickness="0" Command="{Binding LoadImageCommand}" Cursor="Hand"/>
+                    <Button Width="120" Content="Save Image" Height="30" BorderThickness="0" Command="{Binding SaveImageCommand}" Cursor="Hand"/>
+                </StackPanel>
+            </Grid>
+            <Rectangle Fill="#FFBABABA" Height="2" VerticalAlignment="Bottom" Margin="20,0"/>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0" Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="15*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <StackPanel VerticalAlignment="Center">
+                            <ComboBox Margin="5, 0, 0, 0" ItemsSource="{Binding ImageSourceList}" Foreground="{DynamicResource MaterialDesignToolForeground}" SelectedItem="{Binding ImageSourceSelectedItem}" FontSize="20"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <ContentControl Grid.Row="1" Content="{Binding CogDisplay}" Margin="2"/>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="14*"/>
+                    </Grid.RowDefinitions>
+
+                    <TabControl Grid.Row="0" Style="{StaticResource MaterialDesignNavigatilRailTabControl}" TabStripPlacement="Right" materialDesign:ColorZoneAssist.Mode="PrimaryMid">
+                        <TabItem Width="auto">
+                            <TabItem.Header>
+                                <StackPanel Height="auto" Width="auto">
+                                    <TextBlock Text="Settings" Margin="20" HorizontalAlignment="Center" FontSize="15" />
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <Border BorderThickness="2" BorderBrush="{DynamicResource PrimaryHueMidBrush}" CornerRadius="10" Margin="3" >
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="1*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid Grid.Row="0" Grid.Column="0">
+                                            <GroupBox Header="Segmentation" Style="{DynamicResource MaterialDesignCardGroupBox}" Margin="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+                                                <Border BorderThickness="2" BorderBrush="{DynamicResource PrimaryHueMidBrush}" CornerRadius="10" Background="#FFF0F0F0">
+                                                    <Grid>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="1*"/>
+                                                            <RowDefinition Height="1*"/>
+                                                            <RowDefinition Height="2*"/>
+                                                        </Grid.RowDefinitions>
+
+                                                        <Grid Grid.Row="0">
+                                                            <StackPanel Orientation="Vertical" Margin="10 5 5 0" VerticalAlignment="Center">
+                                                                <Label Content="Mode" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold"/>
+                                                                <ComboBox ItemsSource="{Binding SegmentationModeList}" SelectedItem="{Binding SegmentationModeItem}" HorizontalAlignment="Left" FontSize="15" VerticalAlignment="Center"  Width="230" Height="30"/>
+                                                            </StackPanel>
+                                                        </Grid>
+
+                                                        <Grid Grid.Row="1">
+                                                            <StackPanel Orientation="Vertical" Margin="10 5 5 0" VerticalAlignment="Center">
+                                                                <Label Content="Polarity" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold"/>
+                                                                <ComboBox ItemsSource="{Binding PolarityConstantsList}" SelectedItem="{Binding PolarityConstantsItem}" HorizontalAlignment="Left" FontSize="15" VerticalAlignment="Center"  Width="230" Height="30"/>
+                                                            </StackPanel>
+                                                        </Grid>
+
+                                                        <Grid Grid.Row="2" Grid.RowSpan="2">
+                                                            <ListBox ItemsSource="{Binding SegmentationParams}" ItemTemplate="{StaticResource listBoxTemplate}" Grid.Column="1" Margin="5" Grid.IsSharedSizeScope="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+                                                        </Grid>
+                                                    </Grid>
+                                                </Border>
+                                            </GroupBox>
+                                        </Grid>
+
+                                        <Grid Grid.Row="0" Grid.Column="1">
+                                            <GroupBox Header="Morphology" Style="{DynamicResource MaterialDesignCardGroupBox}" Margin="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+                                                <Border BorderThickness="2" BorderBrush="{DynamicResource PrimaryHueMidBrush}" CornerRadius="10" Background="#FFF0F0F0">
+                                                    <Grid>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="1*"/>
+                                                            <RowDefinition Height="3*"/>
+                                                        </Grid.RowDefinitions>
+
+                                                        <Grid Grid.Row="0">
+                                                            <StackPanel Orientation="Vertical" Margin="10 5 5 0" VerticalAlignment="Center">
+                                                                <Label Content="Mode" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold"/>
+                                                                <ComboBox ItemsSource="{Binding MorphologyModeList}" SelectedItem="{Binding MorphologyModeItem}" HorizontalAlignment="Left" FontSize="15" VerticalAlignment="Center"  Width="230" Height="30"/>
+                                                            </StackPanel>
+                                                        </Grid>
+
+                                                        <Grid Grid.Row="2" Grid.RowSpan="2">
+                                                            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                                                <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Margin="0 0 0 20" Content="Add" Height="30" BorderThickness="0" Command="{Binding AddMorphologyCommand}" Cursor="Hand"/>
+                                                                <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Content="Delete" Height="30" BorderThickness="0" Command="{Binding DeleteMorphologyCommand}" Cursor="Hand"/>
+                                                            </StackPanel>
+                                                        </Grid>
+                                                    </Grid>
+                                                </Border>
+                                            </GroupBox>
+                                        </Grid>
+
+                                        <Grid Grid.Row="1" Grid.Column="0">
+                                            <GroupBox Header="Connectivity" Style="{DynamicResource MaterialDesignCardGroupBox}" Margin="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+                                                <Border BorderThickness="2" BorderBrush="{DynamicResource PrimaryHueMidBrush}" CornerRadius="10" Background="#FFF0F0F0">
+                                                    <Grid>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="1*"/>
+                                                            <RowDefinition Height="1*"/>
+                                                            <RowDefinition Height="1*"/>
+                                                        </Grid.RowDefinitions>
+
+                                                        <Grid Grid.Row="0">
+                                                            <StackPanel Orientation="Vertical" Margin="10 5 5 0" VerticalAlignment="Center">
+                                                                <Label Content="Mode" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold"/>
+                                                                <ComboBox ItemsSource="{Binding ConnectivityModeConstantsList}" SelectedItem="{Binding ConnectivityModeConstantsItem}" HorizontalAlignment="Left" FontSize="15" VerticalAlignment="Center"  Width="230" Height="30"/>
+                                                            </StackPanel>
+                                                        </Grid>
+
+                                                        <Grid Grid.Row="1">
+                                                            <StackPanel Orientation="Vertical" Margin="10 5 5 0" VerticalAlignment="Center">
+                                                                <Label Content="Cleanup" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold"/>
+                                                                <ComboBox ItemsSource="{Binding ConnectivityCleanupConstantsList}" SelectedItem="{Binding ConnectivityCleanupConstantsItem}" HorizontalAlignment="Left" FontSize="15" VerticalAlignment="Center"  Width="230" Height="30"/>
+                                                            </StackPanel>
+                                                        </Grid>
+
+                                                        <Grid Grid.Row="2">
+                                                            <ListBox ItemsSource="{Binding ConnectivityParams}" ItemTemplate="{StaticResource listBoxTemplate}" Grid.Column="1" Margin="5" Grid.IsSharedSizeScope="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+                                                        </Grid>
+                                                    </Grid>
+                                                </Border>
+                                            </GroupBox>
+                                        </Grid>
+
+                                        <Grid Grid.Row="1" Grid.Column="1">
+                                            <GroupBox Header="Morphology List" Style="{DynamicResource MaterialDesignCardGroupBox}" Margin="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+                                                <Border BorderThickness="2" BorderBrush="{DynamicResource PrimaryHueMidBrush}" CornerRadius="10" Background="#FFF0F0F0">
+                                                    <ListBox ItemsSource="{Binding MorphologyParam}" ItemTemplate="{StaticResource listBoxTemplate}" Grid.Column="1" Margin="5" Grid.IsSharedSizeScope="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+
+                                                </Border>
+                                            </GroupBox>
+
+                                        </Grid>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Width="auto">
+                            <TabItem.Header>
+                                <StackPanel Height="auto" Width="auto">
+                                    <TextBlock Text="Train Region, Origin" Margin="20" HorizontalAlignment="Center" FontSize="15" />
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <Border BorderThickness="2" BorderBrush="{DynamicResource PrimaryHueMidBrush}" CornerRadius="10" Margin="3">
+                                    <Grid>
+                                        <GroupBox Margin="5" Header="Feature Grain Limits" Style="{DynamicResource MaterialDesignCardGroupBox}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+                                            <Border BorderThickness="2" BorderBrush="{DynamicResource PrimaryHueMidBrush}" CornerRadius="10"  Background="#FFF0F0F0">
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="1*"/>
+                                                        <RowDefinition Height="3*"/>
+                                                        <RowDefinition Height="1*"/>
+                                                    </Grid.RowDefinitions>
+
+                                                    <Grid Grid.Row="0">
+                                                        <StackPanel Orientation="Vertical" Margin="10 5 5 0" VerticalAlignment="Center">
+                                                            <Label Content="Region Shape" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold"/>
+                                                            <ComboBox ItemsSource="{Binding RegionList}" SelectedItem="{Binding RegionItem}" HorizontalAlignment="Left" FontSize="15" VerticalAlignment="Center"  Width="230" Height="30"/>
+                                                        </StackPanel>
+                                                    </Grid>
+
+                                                    <Grid Grid.Row="1">
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="*"/>
+                                                                <ColumnDefinition Width="*"/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <Grid Grid.Column="0">
+                                                                <StackPanel>
+                                                                    <ListBox ItemsSource="{Binding TrainRegionParam}" ItemTemplate="{StaticResource listBoxTemplate}" Grid.Column="1" Margin="5" Grid.IsSharedSizeScope="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+                                                                </StackPanel>
+                                                            </Grid>
+                                                            <Grid Grid.Column="1">
+                                                                <StackPanel>
+                                                                    <ListBox ItemsSource="{Binding TrainOriginParam}" ItemTemplate="{StaticResource listBoxTemplate}" Grid.Column="1" Margin="5" Grid.IsSharedSizeScope="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+                                                                </StackPanel>
+                                                            </Grid>
+                                                        </Grid>
+
+                                                    </Grid>
+
+                                                    <Grid Grid.Row="2">
+                                                        <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="40" Content="Fit In Image" BorderThickness="0" Command="{Binding FitInImageCommand}"/>
+                                                    </Grid>
+                                                </Grid>
+                                            </Border>
+                                        </GroupBox>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Width="auto">
+                            <TabItem.Header>
+                                <StackPanel Height="auto" Width="auto">
+                                    <TextBlock Text="LightContol" Margin="20" HorizontalAlignment="Center" FontSize="15" />
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <Border BorderThickness="2" BorderBrush="{DynamicResource PrimaryHueMidBrush}" CornerRadius="10" Margin="3">
+                                    <Grid>
+                                        <GroupBox Margin="5" Header="Light Control" Style="{DynamicResource MaterialDesignCardGroupBox}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+                                            <Border BorderThickness="2" BorderBrush="{DynamicResource PrimaryHueMidBrush}" CornerRadius="10"  Background="#FFF0F0F0">
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                        <RowDefinition Height="*"/>
+                                                        <RowDefinition Height="*"/>
+                                                        <RowDefinition Height="*"/>
+                                                    </Grid.RowDefinitions>
+                                                    
+                                                    <Grid Grid.Row="0">
+                                                        <ContentControl Content="{Binding SettingLigthView_1}"/>
+                                                    </Grid>
+                                                    <Grid Grid.Row="1">
+                                                        <ContentControl Content="{Binding SettingLigthView_2}"/>
+                                                    </Grid>
+                                                    <Grid Grid.Row="2">
+                                                        <ContentControl Content="{Binding SettingLigthView_3}"/>
+                                                    </Grid>
+                                                    <Grid Grid.Row="3">
+                                                        <ContentControl Content="{Binding SettingLigthView_4}"/>
+                                                    </Grid>
+                                                </Grid>
+                                            </Border>
+                                        </GroupBox>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+
+                        </TabItem>
+
+                        <TabItem Width="auto">
+                            <TabItem.Header>
+                                <StackPanel Height="auto" Width="auto">
+                                    <TextBlock Text="Results" Margin="20" HorizontalAlignment="Center" FontSize="15" />
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <Border BorderThickness="2" BorderBrush="{DynamicResource PrimaryHueMidBrush}" CornerRadius="10" Margin="3">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="1*"/>
+                                            <RowDefinition Height="15*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid Grid.Row="0" Margin="0 5 0 0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="2*"/>
+                                                <ColumnDefinition Width="1*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel Orientation="Horizontal" Grid.Column="0">
+                                                <TextBlock Margin="10 0 0 0" Text="Number Of Results" Style="{DynamicResource MaterialDesignHeadline5TextBlock}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+                                                <TextBlock Margin="20 0 0 0" FontSize="18" Text="{Binding CurrentModelName, FallbackValue=DefualtModel}" Style="{DynamicResource MaterialDesignBody2TextBlock}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                            </StackPanel>
+                                        </Grid>
+
+                                        <Grid Grid.Row="1" Margin="5 0 5 5">
+                                            <Border BorderBrush="#FF323232" Grid.Row="0" CornerRadius="5" BorderThickness="2" Margin="2">
+                                                <materialDesign:Card Foreground="{DynamicResource PrimaryHueLightForegroundBrush}" Padding="8" Margin="5">
+                                                    <Grid>
+                                                        <DataGrid Margin="0,0,0,0" ItemsSource="{Binding BlobResultList}" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False" materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="20 10 10 10" IsReadOnly="True">
+                                                            <!--LoadingRow="DataGrid_LoadingRow">-->
+                                                            <DataGrid.Columns>
+                                                                <DataGridTextColumn Binding="{Binding Id }" Header="ID" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}"/>
+                                                                <DataGridTextColumn Binding="{Binding Area}" Header="Area" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+                                                                <DataGridTextColumn Binding="{Binding CenterOfMassX, StringFormat={}{0:0.##}}" Header="CenterOfMassX" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+                                                                <DataGridTextColumn Binding="{Binding CenterOfMassY, StringFormat={}{0:0.##}}" Header="CenterOfMassY" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+                                                                <DataGridTextColumn Binding="{Binding ImageBoundMinX, StringFormat={}{0:0.##}}" Header="BoundMinX" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+                                                                <DataGridTextColumn Binding="{Binding ImageBoundMaxX, StringFormat={}{0:0.##}}" Header="BoundMaxX" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+                                                                <DataGridTextColumn Binding="{Binding ImageBoundMinY, StringFormat={}{0:0.##}}" Header="BoundMinY" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+                                                                <DataGridTextColumn Binding="{Binding ImageBoundMaxY, StringFormat={}{0:0.##}}" Header="BoundMaxY" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+                                                                <DataGridTextColumn Binding="{Binding BoundHeight, StringFormat={}{0:0.##}}" Header="BoundHeight" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+                                                                <DataGridTextColumn Binding="{Binding BoundWidth, StringFormat={}{0:0.##}}" Header="BoundWidth" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+                                                            </DataGrid.Columns>
+                                                        </DataGrid>
+                                                    </Grid>
+                                                </materialDesign:Card>
+                                            </Border>
+                                        </Grid>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

@@ -1,0 +1,114 @@
+﻿<UserControl x:Class="VASFx.UI.OptionControl.UI.LightOptionControlView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VASFx.UI.OptionControl.UI"
+             mc:Ignorable="d" 
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:Common="clr-namespace:VASFx.Common.Shared;assembly=VASFx.Common"
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ObjectDataProvider x:Key="enumExecuteZone" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+                <ObjectDataProvider.MethodParameters>
+                    <x:Type TypeName="Common:eExecuteZone"/>
+                </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider>
+
+            <ObjectDataProvider x:Key="enumGrabPosition" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+                <ObjectDataProvider.MethodParameters>
+                    <x:Type TypeName="Common:eGrabPosition"/>
+                </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <wpf:DialogHost Identifier="LightControllerOptionControlView">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+
+                    <GroupBox Header="Light Controller Infomation" Style="{DynamicResource MaterialDesignCardGroupBox}" Margin="1" >
+                        <GroupBox.HeaderTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="CameraIris" Height="18" Width="18" VerticalAlignment="Center" />
+                                    <TextBlock Margin="8,0,0,0" VerticalAlignment="Center" FontSize="15" Style="{DynamicResource MaterialDesignSubtitle1TextBlock}" Text="{Binding}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </GroupBox.HeaderTemplate>
+
+                        <ScrollViewer>
+                            <DataGrid x:Name="dgMain" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0 8 0 0" ItemsSource="{Binding ControllerList}" SelectedItem="{Binding ControllerSelected, Mode=TwoWay}" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False" materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="8">
+                                <DataGrid.Columns>
+                                    <materialDesign:DataGridTextColumn Binding="{Binding PortNumber}" Header="PortNo" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                                    <materialDesign:DataGridTextColumn Binding="{Binding BaudRate}" Header="BaudRate" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                                    <materialDesign:DataGridTextColumn Binding="{Binding Parity}" Header="Parity" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                                    <materialDesign:DataGridTextColumn Binding="{Binding DataBits}" Header="DataBits" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                                    <materialDesign:DataGridTextColumn Binding="{Binding StopBits}" Header="StopBits" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                                    <materialDesign:DataGridTextColumn Binding="{Binding MaxChannel}" Header="MaxChannel" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </ScrollViewer>
+                    </GroupBox>
+
+                    <StackPanel Orientation="Vertical" Grid.Column="1" Margin="0,20,0,0">
+                        <Button Content="Add Controller" Command="{Binding AddLightControllerCommand}" Height="50" Margin="5"/>
+                        <Button Content="Delete Controller" Command="{Binding DeleteLightControllerCommand}" Height="50" Margin="5"/>
+                    </StackPanel>
+
+                </Grid>
+            </wpf:DialogHost>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <wpf:DialogHost Identifier="CameraOptionControlView">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+
+                    <GroupBox Header="Light Infomation" Style="{DynamicResource MaterialDesignCardGroupBox}" Margin="1" >
+                        <GroupBox.HeaderTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="CameraIris" Height="18" Width="18" VerticalAlignment="Center" />
+                                    <TextBlock Margin="8,0,0,0" VerticalAlignment="Center" FontSize="15" Style="{DynamicResource MaterialDesignSubtitle1TextBlock}" Text="{Binding}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </GroupBox.HeaderTemplate>
+
+                        <ScrollViewer>
+                            <DataGrid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0 8 0 0" ItemsSource="{Binding LightDataList}" SelectedItem="{Binding LightSelected, Mode=TwoWay}" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False" materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="8">
+                                <DataGrid.Columns>
+                                    <materialDesign:DataGridTextColumn Binding="{Binding Channel}" Header="Channel" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                                    <materialDesign:DataGridTextColumn Binding="{Binding LightValue}" Header="LightValue" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                                    <materialDesign:DataGridComboBoxColumn ItemsSource="{Binding Source={StaticResource enumExecuteZone}}" SelectedValueBinding="{Binding ZoneID}" Header="Zone ID" />
+                                    <materialDesign:DataGridComboBoxColumn ItemsSource="{Binding Source={StaticResource enumGrabPosition}}" SelectedValueBinding="{Binding GrabPosition}" Header="Grab Position" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </ScrollViewer>
+                    </GroupBox>
+
+                </Grid>
+            </wpf:DialogHost>
+        </Grid>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,257 @@
+﻿<UserControl x:Class="VASFx.UI.EditControlViews.UI.MeasureSampleView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VASFx.UI.EditControlViews.UI"
+             mc:Ignorable="d" 
+             Height="700" Width="900" Background="#bce2f7">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition Width="0.8*"/>
+            <ColumnDefinition Width="0.4*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <StackPanel Orientation="Vertical" Height="200" Width="222" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Border BorderBrush="Black" BorderThickness="8" Margin="0,0,0,10">
+                        <Grid Width="100" Height="30" Background="White"/>
+                    </Border>
+                    <Label Content="Current Value" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Border BorderBrush="Red" BorderThickness="8">
+                        <Grid Width="100" Height="30" Background="White"/>
+                    </Border>
+                    <Label Content="Input Value" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" />
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Border Background="#dce1e3" BorderBrush="Blue" BorderThickness="2" CornerRadius="50" Margin="50">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Path Stroke="Black" StrokeThickness="4" FlowDirection="RightToLeft" VerticalAlignment="Top" HorizontalAlignment="Left" Height="12" Margin="0,39.5,0,0" RenderTransformOrigin="0.5,0.5" Stretch="Fill"  Width="114">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleY="-1"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                            <Path.Data>
+                                <GeometryGroup >
+                                    <LineGeometry StartPoint="335,40" EndPoint="350,50" />
+                                    <LineGeometry StartPoint="250,50" EndPoint="352,50" />
+                                    <LineGeometry StartPoint="335,60" EndPoint="350,50" />
+                                </GeometryGroup>
+                            </Path.Data>
+                        </Path>
+
+                        <Path Stroke="Black" StrokeThickness="4" FlowDirection="RightToLeft" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0,0,0,30" Stretch="Fill" Width="114" Height="12">
+                            <Path.Data>
+                                <GeometryGroup >
+                                    <LineGeometry StartPoint="335,40" EndPoint="350,50" />
+                                    <LineGeometry StartPoint="250,50" EndPoint="352,50" />
+                                    <LineGeometry StartPoint="335,60" EndPoint="350,50" />
+                                </GeometryGroup>
+                            </Path.Data>
+                        </Path>
+
+                        <Path Stroke="Black" StrokeThickness="4" FlowDirection="RightToLeft" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="50,0,0,0" Stretch="Fill" Width="12" Height="254">
+                            <Path.Data>
+                                <GeometryGroup >
+                                    <LineGeometry StartPoint="230,750" EndPoint="220,760" />
+                                    <LineGeometry StartPoint="220,600" EndPoint="220,760" />
+                                    <LineGeometry StartPoint="210,750" EndPoint="220,760" />
+                                </GeometryGroup>
+                            </Path.Data>
+                        </Path>
+
+                        <Path Stroke="Black" StrokeThickness="4" FlowDirection="RightToLeft" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50,0,0,0" Stretch="Fill" Width="12" Height="254" >
+                            <Path.Data>
+                                <GeometryGroup >
+                                    <LineGeometry StartPoint="790,15" EndPoint="780,0" />
+                                    <LineGeometry StartPoint="780,190" EndPoint="780,0" />
+                                    <LineGeometry StartPoint="770,15" EndPoint="780,0" />
+                                </GeometryGroup>
+                            </Path.Data>
+                        </Path>
+
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Border BorderBrush="Black" BorderThickness="5" Width="100" Height="40">
+                                <TextBox Text="{Binding FilterValue}" TextAlignment="Center" FontSize="13" Background="White" Foreground="Black"/>
+                            </Border>
+                            <Border BorderBrush="Red" BorderThickness="5" Width="100" Height="40">
+                                <TextBox Text="{Binding FilterValue}" TextAlignment="Center" FontSize="13" Background="White" Foreground="Black"/>
+                            </Border>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
+                            <Border BorderBrush="Black" BorderThickness="5" Width="100" Height="40">
+                                <TextBox Text="{Binding FilterValue}" TextAlignment="Center" FontSize="13" Background="White" Foreground="Black"/>
+                            </Border>
+                            <Border BorderBrush="Red" BorderThickness="5" Width="100" Height="40">
+                                <TextBox Text="{Binding FilterValue}" TextAlignment="Center" FontSize="13" Background="White" Foreground="Black"/>
+                            </Border>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                            <Border BorderBrush="Black" BorderThickness="5" Width="100" Height="40">
+                                <TextBox Text="{Binding FilterValue}" TextAlignment="Center" FontSize="13" Background="White" Foreground="Black"/>
+                            </Border>
+                            <Border BorderBrush="Red" BorderThickness="5" Width="100" Height="40">
+                                <TextBox Text="{Binding FilterValue}" TextAlignment="Center" FontSize="13" Background="White" Foreground="Black"/>
+                            </Border>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Column="2">
+                        <Path Stroke="Black" StrokeThickness="4" FlowDirection="LeftToRight" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,39.5,0,0" Stretch="Fill" Width="114" Height="12">
+                            <Path.Data>
+                                <GeometryGroup >
+                                    <LineGeometry StartPoint="100,40" EndPoint="115,50" />
+                                    <LineGeometry StartPoint="10,50" EndPoint="115,50" />
+                                    <LineGeometry StartPoint="100,60" EndPoint="115,50" />
+                                </GeometryGroup>
+                            </Path.Data>
+                        </Path>
+
+                        <Path Stroke="Black" StrokeThickness="4" FlowDirection="LeftToRight" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,0,30" Stretch="Fill" Width="114" Height="12">
+                            <Path.Data>
+                                <GeometryGroup >
+                                    <LineGeometry StartPoint="100,10" EndPoint="115,20" />
+                                    <LineGeometry StartPoint="10,20" EndPoint="115,20" />
+                                    <LineGeometry StartPoint="100,30" EndPoint="115,20" />
+                                </GeometryGroup>
+                            </Path.Data>
+                        </Path>
+
+                        <Path Stroke="Black" StrokeThickness="4" FlowDirection="RightToLeft" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="50,0,0,0" Stretch="Fill" Width="12" Height="254">
+                            <Path.Data>
+                                <GeometryGroup >
+                                    <LineGeometry StartPoint="230,750" EndPoint="220,760" />
+                                    <LineGeometry StartPoint="220,600" EndPoint="220,760" />
+                                    <LineGeometry StartPoint="210,750" EndPoint="220,760" />
+                                </GeometryGroup>
+                            </Path.Data>
+                        </Path>
+
+                        <Path Stroke="Black" StrokeThickness="4" FlowDirection="RightToLeft" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50,0,0,0" Stretch="Fill" Width="12" Height="254" >
+                            <Path.Data>
+                                <GeometryGroup >
+                                    <LineGeometry StartPoint="790,15" EndPoint="780,0" />
+                                    <LineGeometry StartPoint="780,190" EndPoint="780,0" />
+                                    <LineGeometry StartPoint="770,15" EndPoint="780,0" />
+                                </GeometryGroup>
+                            </Path.Data>
+                        </Path>
+
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Border BorderBrush="Black" BorderThickness="5" Width="100" Height="40">
+                                <TextBox Text="{Binding FilterValue}" TextAlignment="Center" FontSize="13" Background="White" Foreground="Black"/>
+                            </Border>
+                            <Border BorderBrush="Red" BorderThickness="5" Width="100" Height="40">
+                                <TextBox Text="{Binding FilterValue}" TextAlignment="Center" FontSize="13" Background="White" Foreground="Black"/>
+                            </Border>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="0,100,0,100">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Label Content="Tolerance" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" />
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.4*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label Content="Width" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Border Background="White" BorderBrush="Gray" BorderThickness="3" Width="100">
+                            <TextBox Width="80" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding WidthValue}" TextAlignment="Center" FontSize="13" Foreground="Black"/>
+                        </Border>
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <Label Content="mm" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" />
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.4*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label Content="Height" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Border Background="White" BorderBrush="Gray" BorderThickness="3" Width="100">
+                            <TextBox Width="80" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding HeightValue}" TextAlignment="Center" FontSize="13" Foreground="Black"/>
+                        </Border>
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <Label Content="mm" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" />
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1" Margin="0,200,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Margin="5">
+                    <Button Content="Get Length" FontSize="15" Width="180" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding GetLength}"/>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0" Margin="5">
+                        <Button Content="Save" FontSize="15" Width="90" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding Save}"/>
+                    </Grid>
+
+                    <Grid Grid.Column="1" Margin="5">
+                        <Button Content="Close" FontSize="15" Width="90" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding Close}"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

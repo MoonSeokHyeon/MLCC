@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D771278D-07CF-4173-A6B9-A44E8F190006}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>VASFx.MLCC</RootNamespace>
+    <AssemblyName>VASFx.MLCC</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <PublishUrl>게시\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Remote_204|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>\\172.20.0.204\VASFx.MLCC\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Remote208|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>\\192.168.0.200\Program\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>vas.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Remote|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>\\192.168.0.40\Program\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AirspaceFixer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AirspaceFixer.1.0.5\lib\AirspaceFixer.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro, Version=69.3.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assambly\VisionPro9.6 SR2\Cognex.VisionPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.Core, Version=69.3.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assambly\VisionPro9.6 SR2\Cognex.VisionPro.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GSG.NET">
+      <HintPath>..\..\..\Assambly\GSG\GSG.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="GSG.NET.PLC">
+      <HintPath>..\..\..\Assambly\GSG\GSG.NET.PLC.dll</HintPath>
+    </Reference>
+    <Reference Include="GSG.NET.WPF, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assambly\GSG\GSG.NET.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assambly\GSG\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=2.0.4.3, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.2.0.4\lib\net452\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=4.3.0.3, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.4.3.0\lib\net452\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.37\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism, Version=8.1.97.5141, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Core.8.1.97\lib\net47\Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Unity.Wpf, Version=8.1.97.5141, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Unity.8.1.97\lib\net47\Prism.Unity.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Wpf, Version=8.1.97.5141, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Wpf.8.1.97\lib\net47\Prism.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz">
+      <HintPath>..\..\..\Assambly\GSG\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.115.5, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.115.5, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.115.5\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.115.5, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.115.5\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\..\..\Assambly\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Unity.Abstractions, Version=5.11.7.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Abstractions.5.11.7\lib\net48\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.11.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Container.5.11.11\lib\net48\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9e7cd3b544a090dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.2.0.2\lib\net40\WpfAnimatedGif.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Shell.xaml.cs">
+      <DependentUpon>Shell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShellViewModel.cs">
+      <DependentUpon>Shell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EditViews\MLCCEditView.xaml.cs">
+      <DependentUpon>MLCCEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EditViews\MLCCEditViewModel.cs">
+      <DependentUpon>MLCCEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ImageLogViews\MLCCMainImageLogView.xaml.cs">
+      <DependentUpon>MLCCMainImageLogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ImageLogViews\MLCCMainImageLogViewModel.cs" />
+    <Compile Include="UI\InterfaceViews\MLCCInterfaceView.xaml.cs">
+      <DependentUpon>MLCCInterfaceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\InterfaceViews\MLCCInterfaceViewModel.cs" />
+    <Compile Include="UI\LogViews\MLCCLogView.xaml.cs">
+      <DependentUpon>MLCCLogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\LogViews\MLCCLogViewModel.cs" />
+    <Compile Include="UI\MainViews\MLCCMainView.xaml.cs">
+      <DependentUpon>MLCCMainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MainViews\MLCCMainViewModel.cs">
+      <DependentUpon>MLCCMainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\OptionViews\MLCCOptionView.xaml.cs">
+      <DependentUpon>MLCCOptionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\OptionViews\MLCCOptionViewModel.cs">
+      <DependentUpon>MLCCOptionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SettingViews\MLCCSettingView.xaml.cs">
+      <DependentUpon>MLCCSettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SettingViews\MLCCSettingViewModel.cs">
+      <DependentUpon>MLCCSettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ShellViewModule.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Shell.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\EditViews\MLCCEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ImageLogViews\MLCCMainImageLogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\InterfaceViews\MLCCInterfaceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\LogViews\MLCCLogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\MainViews\MLCCMainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\OptionViews\MLCCOptionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\SettingViews\MLCCSettingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Config\MLCC_Light_Config.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\MLCC_PLC_Config.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Config\MLCC_log4net.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UI\CalibrationViews\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VASFx.Common\VASFx.Common.csproj">
+      <Project>{c9dceedd-98d0-47eb-ac43-f31c0df8b980}</Project>
+      <Name>VASFx.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VASFx.Core\VASFx.Core.csproj">
+      <Project>{26d06edb-bd0b-41f9-aeda-8cf16c7fcb2a}</Project>
+      <Name>VASFx.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VASFx.Device.Camera\VASFx.Device.Camera.csproj">
+      <Project>{e24f60c8-ef77-4455-be30-57674524e968}</Project>
+      <Name>VASFx.Device.Camera</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VASFx.Device.LightController\VASFx.Device.LightController.csproj">
+      <Project>{0b42d924-03a5-4664-ae8a-91a5ee834673}</Project>
+      <Name>VASFx.Device.LightController</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VASFx.InspectionFormulas.MeshAvailability\VASFx.InspectionFormulas.MeshAvailability.csproj">
+      <Project>{f1d954ce-3a41-400b-a723-2de30037eb16}</Project>
+      <Name>VASFx.InspectionFormulas.MeshAvailability</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VASFx.MLCC.Sqlite\VASFx.MLCC.Sqlite.csproj">
+      <Project>{953dc6fe-73f2-468f-8ec6-3de2628061bb}</Project>
+      <Name>VASFx.MLCC.Sqlite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VASFx.Scheduler.MLCC\VASFx.Scheduler.MLCC.csproj">
+      <Project>{02ff603e-024e-4eba-bd9f-09bff814869e}</Project>
+      <Name>VASFx.Scheduler.MLCC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VASFx.UI.CogDisplayViews\VASFx.UI.CogDisplayViews.csproj">
+      <Project>{046f9661-1d93-4544-a52a-ab9e89d29f12}</Project>
+      <Name>VASFx.UI.CogDisplayViews</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VASFx.UI.EditControlViews\VASFx.UI.EditControlViews.csproj">
+      <Project>{74dc72df-d048-4cdb-8f17-d87a45c414ca}</Project>
+      <Name>VASFx.UI.EditControlViews</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VASFx.UI.EditModelViews\VASFx.UI.EditModelViews.csproj">
+      <Project>{830fe219-0720-44b7-8497-8119d827522d}</Project>
+      <Name>VASFx.UI.EditModelViews</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VASFx.UI.Interactivity\VASFx.UI.Interactivity.csproj">
+      <Project>{f8c6ad83-d384-45d2-b2f8-2e0874a17554}</Project>
+      <Name>VASFx.UI.Interactivity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VASFx.UI.InterfaceView\VASFx.UI.InterfaceView.csproj">
+      <Project>{a8d6013b-ed0a-4ed5-ae32-6ae3466cf49d}</Project>
+      <Name>VASFx.UI.InterfaceView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VASFx.UI.LightControlViews\VASFx.UI.LightControlViews.csproj">
+      <Project>{faa9eac9-e616-46f0-94a6-acbe2771e49d}</Project>
+      <Name>VASFx.UI.LightControlViews</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VASFx.UI.LogControls\VASFx.UI.LogControls.csproj">
+      <Project>{82376577-7dae-4fd7-9be0-d9c558ff67ef}</Project>
+      <Name>VASFx.UI.LogControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VASFx.UI.MLCCControls\VASFx.UI.MLCCControls.csproj">
+      <Project>{4ecdb490-a209-4349-8a00-2cdcd381048c}</Project>
+      <Name>VASFx.UI.MLCCControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VASFx.UI.OptionControl\VASFx.UI.OptionControls.csproj">
+      <Project>{59a5c526-4cc8-41b9-a7d0-908247ef58e2}</Project>
+      <Name>VASFx.UI.OptionControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VASFx.UI.SetupControlViews\VASFx.UI.SetupControlViews.csproj">
+      <Project>{8e7f76db-a43d-4256-9085-5eeca93eb5d1}</Project>
+      <Name>VASFx.UI.SetupControlViews</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VASFx.UI.SplashScreenWindows\VASFx.UI.SplashScreenWindows.csproj">
+      <Project>{ae9235a9-2c6f-4b51-b6ea-bab585b50232}</Project>
+      <Name>VASFx.UI.SplashScreenWindows</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VASFx.UI.VisionEditorViews\VASFx.UI.VisionEditorViews.csproj">
+      <Project>{7dcf66f2-8e0c-41a0-9ee8-e1a76bbecb51}</Project>
+      <Name>VASFx.UI.VisionEditorViews</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VASFx.VisionLibrary.Cognex\VASFx.VisionLibrary.Cognex.csproj">
+      <Project>{68FB4E5E-B827-46A5-A3F6-4FF4C691D7A7}</Project>
+      <Name>VASFx.VisionLibrary.Cognex</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="vas.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8%28x86 및 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>이 프로젝트는 이 컴퓨터에 없는 NuGet 패키지를 참조합니다. 해당 패키지를 다운로드하려면 NuGet 패키지 복원을 사용하십시오. 자세한 내용은 http://go.microsoft.com/fwlink/?LinkID=322105를 참조하십시오. 누락된 파일은 {0}입니다.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.4.3.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.4.3.0\build\MaterialDesignThemes.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+  <Import Project="..\packages\MaterialDesignThemes.4.3.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.3.0\build\MaterialDesignThemes.targets')" />
+</Project>

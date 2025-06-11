@@ -1,0 +1,79 @@
+﻿<log4net>
+
+	<root name="root">
+		<level value="INFO" />
+		<appender-ref ref="FileAppender" />
+	</root>
+
+	<logger name="PIO" additivity="false">
+		<appender-ref ref="PIOAppender" />
+	</logger>
+
+	<logger name="PRODUCTION" additivity="false">
+		<appender-ref ref="ProductionAppender" />
+	</logger>
+
+	<!--
+	ALL    DEBUG   INFO    WARN    ERROR   FATAL   OFF
+	•All
+	•DEBUG  •DEBUG
+	•INFO   •INFO   •INFO
+	•WARN   •WARN   •WARN   •WARN
+	•ERROR  •ERROR  •ERROR  •ERROR  •ERROR
+	•FATAL  •FATAL  •FATAL  •FATAL  •FATAL  •FATAL
+	•OFF    •OFF    •OFF    •OFF    •OFF    •OFF    •OFF
+	-->
+
+	<appender name="FileAppender" type="GSG.NET.Logging.FileAppender, GSG.NET">
+		<threshold value="ALL"/>
+		<lockingModel type="log4net.Appender.FileAppender+MinimalLock" />
+		<file type="log4net.Util.PatternString">
+			<conversionPattern value="D:\LOG\VASFx\MLCC\Logger.log"  />
+		</file>
+		<appendToFile value="true" />
+		<rollingStyle value="Date" />
+		<backupDays value="10" />
+		<datePattern value="-MMdd'.log'" />
+		<layout type="log4net.Layout.PatternLayout">
+			<conversionPattern value="%d{MM-dd HH:mm:ss.fff} %-2t %p %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="ProductionAppender" type="GSG.NET.Logging.FileAppender, GSG.NET">
+		<threshold value="ALL"/>
+		<lockingModel type="log4net.Appender.FileAppender+MinimalLock" />
+		<file type="log4net.Util.PatternString">
+			<conversionPattern value="D:\LOG\VASFx\MLCC\ProductionLog\Production_Logger.log"  />
+		</file>
+		<appendToFile value="true" />
+		<rollingStyle value="Date" />
+		<backupDays value="365" />
+		<datePattern value="-yyyyMM'.log'" />
+		<layout type="log4net.Layout.PatternLayout">
+			<conversionPattern value="%d{MM-dd HH:mm:ss.fff} %-2t %p %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="PIOAppender" type="GSG.NET.Logging.FileAppender, GSG.NET">
+		<threshold value="ALL"/>
+		<lockingModel type="log4net.Appender.FileAppender+MinimalLock" />
+		<file type="log4net.Util.PatternString">
+			<conversionPattern value="D:\LOG\VASFx\MLCC\PIO\PIO_Logger.log"  />
+		</file>
+		<appendToFile value="true" />
+		<rollingStyle value="Date" />
+		<backupDays value="10" />
+		<datePattern value="-MMdd'.log'" />
+		<layout type="log4net.Layout.PatternLayout">
+			<conversionPattern value="%d{MM-dd HH:mm:ss.fff} %-2t %p %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="ConsoleAppender" type="log4net.Appender.ConsoleAppender"   >
+		<layout type="log4net.Layout.PatternLayout">
+			<param name="ConversionPattern" value="%d %m%n" />
+		</layout>
+		<threshold value="ALL"/>
+	</appender>
+
+</log4net>

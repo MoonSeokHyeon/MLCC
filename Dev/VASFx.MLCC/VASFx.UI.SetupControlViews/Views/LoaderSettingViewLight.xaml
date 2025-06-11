@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="VASFx.UI.SetupControlViews.Views.LoaderSettingViewLight"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VASFx.UI.SetupControlViews.Views"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:prism="http://prismlibrary.com/"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Border VerticalAlignment="Stretch" BorderBrush="{DynamicResource PrimaryHueDarkBrush}" BorderThickness="3" CornerRadius="5" Background="#FFF0F0F0">
+        <Grid>
+            <GroupBox Background="White" Header="LIGHT" BorderBrush="White" FontWeight="Bold">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Label Content="Chanel_1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Slider x:Name="SliderChanel1" Minimum="0" Maximum="255" Height="20" Width="80" VerticalAlignment="Center" Value="{Binding ElementName=Chanel1Value, Path=Text}" />
+                        </Grid>
+
+                        <Grid Grid.Column="2">
+                            <TextBox x:Name="Chanel1Value" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Width="50" Text="{Binding ElementName=SliderChanel1, Path=Value, StringFormat={}{0:0.#}}" Foreground="Black"/>
+                        </Grid>
+
+                        <Grid Grid.Column="3">
+                            <Grid Grid.Column="2">
+                                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                    <Button Height="10" Width="25" Command="{Binding Chanel1}" CommandParameter="Up">
+                                        <materialDesign:PackIcon Kind="MenuUp" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                    </Button>
+                                    <Button Height="10" Width="25" Command="{Binding Chanel1}" CommandParameter="Down">
+                                        <materialDesign:PackIcon Kind="MenuDown" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                    </Button>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Label Content="Chanel_2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Slider x:Name="SliderChanel2" Minimum="0" Maximum="255" Height="20" Width="80" VerticalAlignment="Center" Value="{Binding ElementName=Chanel2Value, Path=Text}" />
+                        </Grid>
+
+                        <Grid Grid.Column="2">
+                            <TextBox x:Name="Chanel2Value" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Width="50" Text="{Binding ElementName=SliderChanel2, Path=Value, StringFormat={}{0:0.#}}" Foreground="Black"/>
+                        </Grid>
+
+                        <Grid Grid.Column="3">
+                            <Grid Grid.Column="2">
+                                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                    <Button Height="10" Width="25" Command="{Binding Chanel2}" CommandParameter="Up">
+                                        <materialDesign:PackIcon Kind="MenuUp" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                    </Button>
+                                    <Button Height="10" Width="25" Command="{Binding Chanel2}" CommandParameter="Down">
+                                        <materialDesign:PackIcon Kind="MenuDown" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-7,0,0,0" Height="10" Width="105"/>
+                                    </Button>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </GroupBox>
+        </Grid>
+    </Border>
+</UserControl>
